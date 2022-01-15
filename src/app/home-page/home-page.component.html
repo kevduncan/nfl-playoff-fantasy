@@ -1,0 +1,51 @@
+<div class="header-bar">
+  <h1>NFL Fantasy Playoff Pool</h1>
+</div>
+
+<div class="pot">
+  <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
+</div>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title [ngSwitch]="idx">
+          <span *ngSwitchCase="0" style="font-size: 20px;">
+            <span style="margin-right: 5px;">🥇</span>
+            {{ entry.teamName }}
+          </span>
+          <span *ngSwitchCase="1" style="font-size: 18px;">
+            <span style="margin-right: 5px;">🥈</span>
+            {{ entry.teamName }}
+          </span>
+          <span *ngSwitchDefault>
+            <span style="margin-right: 5px;">{{idx + 1}}. </span>
+            {{ entry.teamName }}
+          </span>
+          <!-- <span *ngIf="idx === 0" >🥇</span>
+          <span *ngIf="idx === 1" style="margin-right: 5px;"></span>
+          <span *ngIf="idx > 1" style="margin-right: 5px;">{{idx + 1}}. </span> -->
+
+        </mat-panel-title>
+        <mat-panel-description style="display: flex; align-items: center;">
+          {{ entry.totalPoints }}pts
+          <span style="font-size: 10px; margin-left: 7px">{{ entry.remainingPlayers}} alive</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="roster-info">
+        <mat-list>
+          <mat-list-item *ngFor="let player of entry.roster">
+            <mat-icon mat-list-icon class="roster-position">
+              <span>{{ player.pos }}</span>
+            </mat-icon>
+            <div mat-line class="player-info" >
+              <img src="{{player.teamLogo}}" alt="" style="width: 24px">
+              <span [class.eliminated]="player.eliminated" [class.alive]="!player.eliminated"> {{ player.name.split('(')[0] }}</span>
+              <span> {{ player.points }}pts</span>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-expansion-panel>
+
+  </mat-accordion>

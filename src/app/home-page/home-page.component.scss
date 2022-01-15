@@ -1,0 +1,35 @@
+h1 {
+  font-family: 'Roboto Slab', serif;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.header-bar {
+  padding: 10px;
+  text-align: center;
+  background-color: #1f2126;
+}
+
+.pot {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.roster-position {
+  font-size: 14px !important;
+  font-family: 'Roboto' sans-serif !important;
+}
+
+.player-info {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.eliminated {
+  color: red;
+}
+
+.alive {
+  color: green;
+}

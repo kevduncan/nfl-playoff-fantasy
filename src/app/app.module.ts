@@ -14,6 +14,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MaterialModule } from './material.module';
 import { StatEntryComponent } from './stat-entry/stat-entry.component';
 import { CommonModule } from '@angular/common';
+import { PlayerStatsDialogComponent } from './player-stats-dialog/player-stats-dialog.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRhGh80TCupWE9ux6nYVJWMKIld4uuThY",
@@ -28,7 +29,8 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     HomePageComponent,
-    StatEntryComponent
+    StatEntryComponent,
+    PlayerStatsDialogComponent
   ],
   imports: [
     CommonModule,

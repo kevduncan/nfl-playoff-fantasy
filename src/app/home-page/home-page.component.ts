@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { combineLatest, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import * as _ from 'lodash';
+import { MatDialog } from '@angular/material/dialog';
+import { PlayerStatsDialogComponent } from 'app/player-stats-dialog/player-stats-dialog.component';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +12,7 @@ import * as _ from 'lodash';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  public opened = false;
 
   public lineupOrder = {
     QB: 1,
@@ -29,7 +32,8 @@ export class HomePageComponent implements OnInit {
 
 
   constructor(
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    public dialog: MatDialog
   ) {
   }
 
@@ -43,8 +47,6 @@ export class HomePageComponent implements OnInit {
 
     this.scoreboardData$ = combineLatest([this.stats$, this.teams$, this.players$, this.entries$]).pipe(
      map(([stats, teams, allPlayers, entries]) => {
-       console.log(stats, teams, allPlayers, entries);
-
       const playersWithScores = allPlayers.map((player) => {
         let playerPoints = 0;
         const playerStats = stats.filter(stat => stat.playerId === player.id);
@@ -53,12 +55,11 @@ export class HomePageComponent implements OnInit {
           Object.keys(stat.statLine).forEach((key) => {
             const statAmount = stat.statLine[key] || 0;
             const statScoring = this.scoring[key] || 0;
-            console.log(statAmount, statScoring);
 
             playerPoints += (statAmount * statScoring);
           });
         });
-        return {...player, points: playerPoints};
+        return {...player, points: playerPoints, playerStats};
       });
 
 
@@ -98,10 +99,16 @@ export class HomePageComponent implements OnInit {
         }
       });
 
-       return _.orderBy(entriesWithRosters.filter(entry => entry.isValid), 'totalPoints', 'desc');
+       return _.orderBy(entriesWithRosters.filter(entry => entry.isValid), ['totalPoints', 'teamName'], ['desc', 'asc']);
      }),
     );
 
+  }
+
+  openStatsDialog(entry) {
+    const dialogRef = this.dialog.open(PlayerStatsDialogComponent, {
+      data: entry
+    });
   }
 
 }

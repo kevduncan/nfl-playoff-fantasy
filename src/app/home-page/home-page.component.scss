@@ -4,10 +4,15 @@ h1 {
   margin-top: 10px;
 }
 
+.side-nav {
+  min-width: 40%;
+}
+
 .header-bar {
-  padding: 10px;
-  text-align: center;
-  background-color: #1f2126;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .pot {
@@ -32,4 +37,19 @@ h1 {
 
 .alive {
   color: green;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

@@ -15,6 +15,8 @@ import { MaterialModule } from './material.module';
 import { StatEntryComponent } from './stat-entry/stat-entry.component';
 import { CommonModule } from '@angular/common';
 import { PlayerStatsDialogComponent } from './player-stats-dialog/player-stats-dialog.component';
+import { PointsSortPipe } from './_pipes/points-sort.pipe';
+import { FormsModule } from '@angular/forms';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRhGh80TCupWE9ux6nYVJWMKIld4uuThY",
@@ -30,13 +32,15 @@ const firebaseConfig = {
     AppComponent,
     HomePageComponent,
     StatEntryComponent,
-    PlayerStatsDialogComponent
+    PlayerStatsDialogComponent,
+    PointsSortPipe
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth

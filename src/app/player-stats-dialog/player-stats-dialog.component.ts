@@ -14,6 +14,7 @@ export class PlayerStatsDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // console.log(this.player);
   }
 
 }

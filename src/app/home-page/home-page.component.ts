@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   teams$: Observable<any[]>;
   players$: Observable<any[]>;
   entries$: Observable<any[]>;
-  scoreboardData$: Observable<unknown>;
+  scoreboardData$: Observable<any[]>;
   scoring: any;
 
 

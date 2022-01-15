@@ -1,1 +1,21 @@
-<p>stat-entry works!</p>
+<div>
+  <h1>Add New Stat</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Player</mat-label>
+    <mat-select [(ngModel)]="newStatPlayer">
+      <mat-option *ngFor="let player of selectedPlayers$ | async" [value]="player">{{ player.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="fill" *ngFor="let key of scoringKeys">
+    <mat-label>{{ key }}</mat-label>
+    <input matInput type="text" [(ngModel)]="scoringModel[key]">
+  </mat-form-field>
+  <pre>{{ newStatPlayer | json }}</pre>
+</div>
+
+
+<div>
+  <h1>Update Existing Stat</h1>
+
+</div>

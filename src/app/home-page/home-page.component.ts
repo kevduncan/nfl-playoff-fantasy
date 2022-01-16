@@ -56,7 +56,6 @@ export class HomePageComponent implements OnInit {
             const statScoring = this.scoring[key] || 0;
 
             singleGamePoints += (statAmount * statScoring);
-            // playerTotalPoints += (statAmount * statScoring);
           });
           playerTotalPoints += singleGamePoints;
           return {
@@ -65,14 +64,6 @@ export class HomePageComponent implements OnInit {
           };
         });
 
-        // playerStats.forEach((stat) => {
-        //   Object.keys(stat.statLine).forEach((key) => {
-        //     const statAmount = stat.statLine[key] || 0;
-        //     const statScoring = this.scoring[key] || 0;
-
-        //     playerPoints += (statAmount * statScoring);
-        //   });
-        // });
         return {...player, points: playerTotalPoints, playerStats};
       });
 

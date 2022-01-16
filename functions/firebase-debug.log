@@ -1,0 +1,25 @@
+[debug] [2022-01-16T21:07:28.461Z] ----------------------------------------------------------------------
+[debug] [2022-01-16T21:07:28.463Z] Command:       /usr/local/bin/node /Users/kduncan/.npm-global/bin/firebase deploy --only functions
+[debug] [2022-01-16T21:07:28.463Z] CLI Version:   9.20.0
+[debug] [2022-01-16T21:07:28.463Z] Platform:      darwin
+[debug] [2022-01-16T21:07:28.463Z] Node Version:  v14.18.0
+[debug] [2022-01-16T21:07:28.464Z] Time:          Sun Jan 16 2022 16:07:28 GMT-0500 (Eastern Standard Time)
+[debug] [2022-01-16T21:07:28.465Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-16T21:07:28.518Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-16T21:07:28.518Z] > authorizing via signed-in user (kevinduncan51@gmail.com)
+[debug] [2022-01-16T21:07:28.518Z] [iam] checking project nfl-fantasy-playoffs-9af36 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-01-16T21:07:28.520Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/nfl-fantasy-playoffs-9af36:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-01-16T21:07:28.993Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 16 Jan 2022 21:07:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=121","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-16T21:07:28.995Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/nfl-fantasy-playoffs-9af36/serviceAccounts/nfl-fantasy-playoffs-9af36@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-01-16T21:07:29.141Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 16 Jan 2022 21:07:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'nfl-fantasy-playoffs-9af36'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2022-01-16T21:07:42.639Z] Validating nodejs source

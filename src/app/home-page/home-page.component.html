@@ -16,7 +16,7 @@
 
     <div class="pot">
       <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
-      <small>note: working through some bugs during these first games, everything should be accurate by tomorrow</small>
+      <small>game logs are now up - working on getting some live data feeds for box scores but still manual stat entry at the end of games for now</small>
     </div>
 
     <mat-accordion class="headers-align" multi>
@@ -36,9 +36,10 @@
               {{ entry.teamName }}
             </span>
           </mat-panel-title>
-          <mat-panel-description style="display: flex; align-items: center;">
-            {{ entry.totalPoints.toFixed(2) }}pts
-            <span style="font-size: 10px; margin-left: 7px">{{ entry.remainingPlayers}} alive</span>
+          <mat-panel-description style="display: flex; align-items: center; margin-right: 0;">
+            <span style="font-size: 10px;">{{ entry.remainingPlayers}} alive</span>
+            <span></span>
+            <span style="margin-left: 7px;">{{ entry.totalPoints.toFixed(2) }}pts</span>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="roster-info">

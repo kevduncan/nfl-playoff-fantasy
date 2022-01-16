@@ -8,7 +8,11 @@
   <span>{{ player.name }}</span>
 </h1>
 <div mat-dialog-content>
-  <pre>individual game stats + scoring coming soon</pre>
+  <table>
+    <th *ngFor="let header of tableHeaders$ | async">{{ header }}</th>
+    <!--  style="font-family: monospace" -->
+  </table>
+  <!-- <pre>individual game stats + scoring coming soon</pre> -->
 </div>
 <!-- <div mat-dialog-actions>
   <button mat-button mat-dialog-close cdkFocusInitial>Close</button>

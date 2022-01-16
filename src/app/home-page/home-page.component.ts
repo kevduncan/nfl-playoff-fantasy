@@ -48,18 +48,32 @@ export class HomePageComponent implements OnInit {
     this.scoreboardData$ = combineLatest([this.stats$, this.teams$, this.players$, this.entries$]).pipe(
      map(([stats, teams, allPlayers, entries]) => {
       const playersWithScores = allPlayers.map((player) => {
-        let playerPoints = 0;
-        const playerStats = stats.filter(stat => stat.playerId === player.id);
-
-        playerStats.forEach((stat) => {
+        let playerTotalPoints = 0;
+        const playerStats = stats.filter(stat => stat.playerId === player.id).map((stat) => {
+          let singleGamePoints = 0;
           Object.keys(stat.statLine).forEach((key) => {
             const statAmount = stat.statLine[key] || 0;
             const statScoring = this.scoring[key] || 0;
 
-            playerPoints += (statAmount * statScoring);
+            singleGamePoints += (statAmount * statScoring);
+            // playerTotalPoints += (statAmount * statScoring);
           });
+          playerTotalPoints += singleGamePoints;
+          return {
+            ...stat,
+            gamePoints: singleGamePoints
+          };
         });
-        return {...player, points: playerPoints, playerStats};
+
+        // playerStats.forEach((stat) => {
+        //   Object.keys(stat.statLine).forEach((key) => {
+        //     const statAmount = stat.statLine[key] || 0;
+        //     const statScoring = this.scoring[key] || 0;
+
+        //     playerPoints += (statAmount * statScoring);
+        //   });
+        // });
+        return {...player, points: playerTotalPoints, playerStats};
       });
 
 
@@ -93,7 +107,7 @@ export class HomePageComponent implements OnInit {
         return {
           teamName: entry.teamName,
           roster: sorted,
-          totalPoints,
+          totalPoints: totalPoints,
           remainingPlayers,
           isValid
         }

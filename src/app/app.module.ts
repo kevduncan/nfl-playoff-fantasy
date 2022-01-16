@@ -17,15 +17,7 @@ import { CommonModule } from '@angular/common';
 import { PlayerStatsDialogComponent } from './player-stats-dialog/player-stats-dialog.component';
 import { PointsSortPipe } from './_pipes/points-sort.pipe';
 import { FormsModule } from '@angular/forms';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDRhGh80TCupWE9ux6nYVJWMKIld4uuThY",
-  authDomain: "nfl-fantasy-playoffs-9af36.firebaseapp.com",
-  projectId: "nfl-fantasy-playoffs-9af36",
-  storageBucket: "nfl-fantasy-playoffs-9af36.appspot.com",
-  messagingSenderId: "108862090438",
-  appId: "1:108862090438:web:68576309771ebc6687bbc7"
-};
+import { environment } from 'environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +33,7 @@ const firebaseConfig = {
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage

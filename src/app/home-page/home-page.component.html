@@ -16,6 +16,7 @@
 
     <div class="pot">
       <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
+      <small>note: working through some bugs during these first games, everything should be accurate by tomorrow</small>
     </div>
 
     <mat-accordion class="headers-align" multi>
@@ -36,7 +37,7 @@
             </span>
           </mat-panel-title>
           <mat-panel-description style="display: flex; align-items: center;">
-            {{ entry.totalPoints }}pts
+            {{ entry.totalPoints.toFixed(2) }}pts
             <span style="font-size: 10px; margin-left: 7px">{{ entry.remainingPlayers}} alive</span>
           </mat-panel-description>
         </mat-expansion-panel-header>
@@ -44,12 +45,12 @@
           <mat-selection-list [multiple]="false">
             <mat-list-option *ngFor="let player of entry.roster" (click)="openStatsDialog(player)">
               <mat-icon mat-list-icon class="roster-position">
-                <span>{{ player.pos }}</span>
+                <span [class.eliminated]="player.eliminated">{{ player.pos }}</span>
               </mat-icon>
               <div mat-line class="player-info">
                 <img src="{{player.teamLogo}}" alt="" style="width: 24px">
                 <span [class.eliminated]="player.eliminated" [class.alive]="!player.eliminated"> {{ player.name.split('(')[0] }}</span>
-                <span> {{ player.points }}pts</span>
+                <span> {{ player.points.toFixed(2) }}pts</span>
               </div>
             </mat-list-option>
           </mat-selection-list>

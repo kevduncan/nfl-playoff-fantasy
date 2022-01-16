@@ -1,21 +1,74 @@
 <div>
   <h1>Add New Stat</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Player</mat-label>
-    <mat-select [(ngModel)]="newStatPlayer">
-      <mat-option *ngFor="let player of selectedPlayers$ | async" [value]="player">{{ player.name }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="header-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Team</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let team of aliveTeams$ | async" [value]="team" (onSelectionChange)="setSelectedTeam($event)">{{ team.abbr }}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field class="example-form-field" appearance="fill" *ngFor="let key of scoringKeys">
-    <mat-label>{{ key }}</mat-label>
-    <input matInput type="text" [(ngModel)]="scoringModel[key]">
-  </mat-form-field>
-  <pre>{{ newStatPlayer | json }}</pre>
+    <mat-form-field appearance="fill" style="margin-left: 10px">
+      <mat-label>Player</mat-label>
+      <mat-select [(ngModel)]="newStatPlayer">
+        <mat-option *ngFor="let player of selectedPlayers$ | async" [value]="player">{{ player.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-left: 10px;">
+      <mat-label>Opponent</mat-label>
+      <mat-select [(ngModel)]="newStatOpponent">
+        <mat-option *ngFor="let team of aliveTeams$ | async" [value]="team">{{ team.abbr }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="stats-container">
+    <mat-form-field class="new-stat-field" appearance="fill" *ngFor="let key of scoringKeys">
+      <mat-label>{{ key }}</mat-label>
+      <input matInput type="number" [(ngModel)]="scoringModel[key]">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button class="submit-button" color="accent" (click)="submitNewStat()" [disabled]="!newStatPlayer">Submit</button>
 </div>
 
 
-<div>
+<div style="margin-top: 50px;">
   <h1>Update Existing Stat</h1>
 
+  <!-- <button mat-raised-button class="submit-button" color="accent" (click)="updateAll()">Update All</button> -->
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Team</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let team of aliveTeams$ | async" [value]="team" (onSelectionChange)="setSelectedTeam($event)">{{ team.abbr }}</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Opponent</th>
+        <th>Submit changes</th>
+        <th *ngFor="let key of scoringKeys">{{ key }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stat of existingStats$ | async; let idx = index;">
+        <td style="padding: 10px;">{{ stat.playerName }}</td>
+        <td style="padding: 10px;">{{ stat.opponent }}</td>
+        <td>
+          <button mat-flat-button color="accent" (click)="editExistingStat(stat)">Update</button>
+        </td>
+        <td *ngFor="let key of scoringKeys">
+          <mat-form-field class="new-stat-field" appearance="fill">
+            <mat-label>{{ key }}</mat-label>
+            <input matInput type="number" [(ngModel)]="stat.statLine[key]">
+          </mat-form-field>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <pre *ngFor="let stat of existingStats$ | async">{{ stat | json }}</pre> -->
 </div>

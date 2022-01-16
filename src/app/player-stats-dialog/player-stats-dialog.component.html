@@ -1,19 +1,25 @@
-<!-- <pre>{{ player | json}}</pre> -->
 <h1 mat-dialog-title class="title-flex">
   <span class="logo-pos">
-    <img src="{{player.teamLogo}}" alt="" style="width: 40px; margin-right: 6px;">
+    <img src="{{player.teamLogo}}" alt="" style="width: 30px; margin-right: 6px;">
     <span style="font-size: 16px;">{{ player.pos }}</span>
   </span>
-  <span class="spacer"></span>
-  <span>{{ player.name }}</span>
+  <span style="margin-left: 35px">{{ player.name }}</span>
 </h1>
 <div mat-dialog-content>
   <table>
-    <th *ngFor="let header of tableHeaders$ | async">{{ header }}</th>
-    <!--  style="font-family: monospace" -->
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableHeaders$ | async; let idx = index;" style="padding: 4px;" [class.no-border]="idx <= 1">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of playerGameLog$ | async">
+        <td *ngFor="let header of tableHeaders$ | async; let idx = index;" style="font-family: monospace; padding: 4px; text-align: center;">
+          <img *ngIf="idx === 0" src="{{game.oppTeamLogo}}" alt="" class="opp-logo">
+          <span *ngIf="idx === 1">{{ game.gamePoints.toFixed(2) }}pts</span>
+          <span *ngIf="idx > 1">{{ game.statLine[header] }}</span>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <!-- <pre>individual game stats + scoring coming soon</pre> -->
 </div>
-<!-- <div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
-</div> -->

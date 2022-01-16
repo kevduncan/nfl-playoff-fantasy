@@ -76,7 +76,7 @@ export class StatEntryComponent implements OnInit {
   async submitNewStat() {
     const id = this.firestore.collection('stats').doc().ref.id;
 
-    await this.firestore.collection('stats').add({
+    await this.firestore.doc(`stats/${id}`).set({
       id,
       playerId: this.newStatPlayer.id,
       opponent: this.newStatOpponent.abbr,

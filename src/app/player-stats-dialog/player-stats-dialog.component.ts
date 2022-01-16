@@ -2,7 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as _ from 'lodash';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-player-stats-dialog',
@@ -19,6 +20,7 @@ export class PlayerStatsDialogComponent implements OnInit {
   };
 
   tableHeaders$: BehaviorSubject<string[]> = new BehaviorSubject([]);
+  playerGameLog$: Observable<any[]>;
 
   constructor(
     private firestore: AngularFirestore,
@@ -28,14 +30,22 @@ export class PlayerStatsDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.setTableHeaders();
-    console.log(this.player);
 
-
-    // order game stats by timestamp
+    this.playerGameLog$ = this.firestore.collection<any>('teams').valueChanges().pipe(
+      map((teams) => {
+        return _.orderBy(this.player.playerStats.map((stats) => {
+          const oppTeamLogo = teams.find(team => team.abbr === stats.opponent)?.logoUrl || '';
+          return {
+            ...stats,
+            oppTeamLogo
+          }
+        }), 'timestamp', 'asc');
+      })
+    );
   }
 
   setTableHeaders(): void {
-    const headersToShow = ['points', 'opp'];
+    const headersToShow = ['', ' '];
 
     this.player.playerStats.forEach((gameStatLine) => {
       Object.keys(gameStatLine.statLine).forEach((key) => {
@@ -45,7 +55,19 @@ export class PlayerStatsDialogComponent implements OnInit {
       });
     });
 
-    this.tableHeaders$.next(_.orderBy(_.uniq(headersToShow), key => this.standardScoringCategories[this.player.pos].indexOf(key)));
+    this.tableHeaders$.next(
+      _.orderBy(_.uniq(headersToShow), (key) => {
+        switch(key) {
+          case '':
+            return -2;
+          case ' ':
+            return -1;
+          default:
+            const idx = this.standardScoringCategories[this.player.pos].indexOf(key);
+            return idx < 0 ? 100 : idx;
+        }
+      })
+    );
   }
 
 }

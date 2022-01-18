@@ -116,4 +116,8 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  totalPointsChange(index, entry) {
+    return entry.totalPoints;
+  }
+
 }

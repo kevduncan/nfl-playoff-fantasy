@@ -16,12 +16,11 @@
 
     <div class="pot">
       <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
-      <small>game logs are now up</small>
-      <small>stats should now be scraped from ESPN box scores and updated every 5 minutes, unfortunately they don't list 2pc or fg distances so will still have to input these manually </small>
+      <small>leaderboard should be updated automatically every 1min as box stats are pulled in</small>
     </div>
 
     <mat-accordion class="headers-align" multi>
-      <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index; trackBy: totalPointsChange" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header class="header-padding">
           <mat-panel-title [ngSwitch]="idx">
             <span *ngSwitchCase="0" style="font-size: 20px;">

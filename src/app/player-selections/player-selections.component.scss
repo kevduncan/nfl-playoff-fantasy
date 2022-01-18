@@ -1,3 +1,11 @@
-.pie-chart{
-  // max-width: 500px;
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.chart {
+  margin-top: 50px;
+  min-width: 500px;
 }

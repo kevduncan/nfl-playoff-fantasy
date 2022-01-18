@@ -12,6 +12,7 @@ import * as _ from 'lodash';
   styleUrls: ['./player-selections.component.scss']
 })
 export class PlayerSelectionsComponent implements OnInit {
+  public opened: boolean;
   public positions = ['QB', 'RB', 'WR', 'TE', 'K'];
   public barCharts = [];
 
@@ -62,32 +63,53 @@ export class PlayerSelectionsComponent implements OnInit {
 
     const playerCounts = _.countBy(entryPlayers);
 
+    const charts = [];
     _.forEach(playerGroups, (players, pos) => {
       if (pos !== '') {
         const posLabels = [];
         const posData = [];
-        players.forEach((player) => {
-          const count = playerCounts[player.id];
+
+        const playersWithCounts = _.orderBy(players.map((player) => {
+          player.count = playerCounts[player.id];
+          return player;
+        }), 'count', 'desc');
+
+        playersWithCounts.forEach((player) => {
           posLabels.push(player.name);
-          posData.push(count);
+          posData.push(player.count);
         });
-        // groupSets.push({[pos]: {posLabels, posData}});
-        this.barCharts.push({
+
+        charts.push({
           pos: pos,
           options: this.generateBarChartOptions(),
           data: this.generateBarChartData(posLabels, posData, pos)
         });
       }
     });
+
+    this.barCharts = _.orderBy(charts, (chart) => {
+      return this.positions.indexOf(chart.pos);
+    });
   }
 
   generateBarChartOptions() {
     const barChartOptions: ChartConfiguration['options'] = {
-      responsive: true,
+      // responsive: true,
+
       // We use these empty structures as placeholders for dynamic theming.
       scales: {
-        x: {},
-        y: {}
+        x: {
+          ticks: {
+            color: '#FFFFFF'
+          }
+        },
+        y: {
+          ticks: {
+            color: '#FFFFFF',
+            autoSkip: false,
+          }
+        },
+
       },
       indexAxis: 'y',
       plugins: {
@@ -95,9 +117,11 @@ export class PlayerSelectionsComponent implements OnInit {
           display: true,
         },
         datalabels: {
-          anchor: 'end',
-          align: 'end'
-        }
+          anchor: 'start',
+          align: 'end',
+          color: '#FFFFFF'
+        },
+
       }
     };
 
@@ -109,7 +133,7 @@ export class PlayerSelectionsComponent implements OnInit {
       labels: labels,
       datasets: [
         { data, label: pos },
-      ]
+      ],
     };
     return barChartData
   }

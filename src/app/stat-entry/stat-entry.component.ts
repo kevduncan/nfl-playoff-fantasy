@@ -60,14 +60,17 @@ export class StatEntryComponent implements OnInit {
       })
     );
 
-    this.existingStats$ = combineLatest([this.stats$, this.players$]).pipe(
-      map(([stats, players]) => {
+    this.existingStats$ = combineLatest([this.stats$, this.players$, this.playerTeam$]).pipe(
+      map(([stats, players, selectedTeam]) => {
         return _.orderBy(stats.map((stat) => {
           const matchingPlayer = players.find(player => player.id === stat.playerId);
           return {
             ...stat,
+            team: matchingPlayer.team,
             playerName: matchingPlayer.name
           }
+        }).filter((stat) => {
+          return stat.team === selectedTeam;
         }), 'timestamp', 'desc');
       })
     )

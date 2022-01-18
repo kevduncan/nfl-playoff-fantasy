@@ -1,0 +1,19 @@
+<div>
+    <div>
+      <div *ngFor="let chart of barCharts" class="chart pie-chart">
+        <canvas baseChart
+        [data]="chart.data"
+        [options]="chart.options"
+        [plugins]="barChartPlugins"
+        [type]="barChartType"
+        >
+      </canvas>
+        <!-- <canvas baseChart
+                [data]="chart.data"
+                [type]="pieChartType"
+                [options]="chart.options"
+                [plugins]="pieChartPlugins">
+        </canvas> -->
+      </div>
+    </div>
+  </div>

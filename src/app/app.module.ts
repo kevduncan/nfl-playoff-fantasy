@@ -18,6 +18,8 @@ import { PlayerStatsDialogComponent } from './player-stats-dialog/player-stats-d
 import { PointsSortPipe } from './_pipes/points-sort.pipe';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
+import { NgChartsModule } from 'ng2-charts';
+import { PlayerSelectionsComponent } from './player-selections/player-selections.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { environment } from 'environments/environment';
     HomePageComponent,
     StatEntryComponent,
     PlayerStatsDialogComponent,
-    PointsSortPipe
+    PointsSortPipe,
+    PlayerSelectionsComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { environment } from 'environments/environment';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    MaterialModule
+    MaterialModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

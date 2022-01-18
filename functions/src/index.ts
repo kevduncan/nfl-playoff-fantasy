@@ -68,6 +68,12 @@ export const updateStats = functions.https.onRequest(async (request, response) =
 
     if (matchingStat) {
       playerStats.id = matchingStat.id;
+      playerStats.statLine['2pc'] = matchingStat.statLine['2pc'];
+      playerStats.statLine['missedFg'] = matchingStat.statLine['missedFg'];
+      playerStats.statLine['fg60'] = matchingStat.statLine['fg60'];
+      playerStats.statLine['fg50-59'] = matchingStat.statLine['fg50-59'];
+      playerStats.statLine['fg40-49'] = matchingStat.statLine['fg40-49'];
+      playerStats.statLine['fg0-39'] = matchingStat.statLine['fg0-39'];
     } else {
       playerStats.id = firestore.collection('stats').doc().id;
     }

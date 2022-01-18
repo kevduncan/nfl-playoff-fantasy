@@ -3,7 +3,7 @@
     <mat-nav-list>
       <div style="text-align: center; font-size: 24px; padding: 20px;">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
-      <a mat-list-item [routerLink]="['/breakdown']">Player Selection Graphs</a>
+      <a mat-list-item [routerLink]="['/breakdown']">Player Selection Breakdown</a>
       <!-- <a mat-list-item href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">Entry Form</a> -->
       <a mat-list-item href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats" target="_blank">Scoring Format (PPR)</a>
     </mat-nav-list>
@@ -13,7 +13,7 @@
     <div>
       <div class="header-bar">
         <button mat-icon-button (click)="opened = true"><mat-icon>menu</mat-icon></button>
-        <h1>Player Selection Graphs</h1>
+        <h1>Player Selection Breakdown</h1>
       </div>
       <div>
         <div *ngFor="let chart of barCharts" class="chart">

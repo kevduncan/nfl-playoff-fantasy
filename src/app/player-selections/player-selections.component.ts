@@ -20,34 +20,6 @@ export class PlayerSelectionsComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartPlugins = [ DataLabelsPlugin ];
 
-  // Pie
-  // public pieChartType: ChartType = 'pie';
-  // public pieChartPlugins = [ DatalabelsPlugin ];
-  // public pieChartOptions: ChartConfiguration['options'] = {
-  //   responsive: true,
-  //   plugins: {
-  //     legend: {
-  //       display: true,
-  //       position: 'bottom',
-  //     },
-  //     datalabels: {
-  //       formatter: (value, ctx) => {
-  //         if (ctx.chart.data.labels) {
-  //           return ctx.chart.data.labels[ctx.dataIndex];
-  //         }
-  //       },
-  //       color: '#FFFFFF'
-  //     },
-  //   }
-  // };
-  // public pieChartData: ChartData<'pie', number[], string | string[]>;
-  //  = {
-  //   labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
-  //   datasets: [ {
-  //     data: [ 300, 500, 100 ],
-
-  //   } ],
-  // };
 
 
   constructor(
@@ -94,7 +66,7 @@ export class PlayerSelectionsComponent implements OnInit {
 
   generateBarChartOptions() {
     const barChartOptions: ChartConfiguration['options'] = {
-      // responsive: true,
+      responsive: true,
 
       // We use these empty structures as placeholders for dynamic theming.
       scales: {
@@ -137,6 +109,38 @@ export class PlayerSelectionsComponent implements OnInit {
     };
     return barChartData
   }
+}
+
+
+  // Pie
+  // public pieChartType: ChartType = 'pie';
+  // public pieChartPlugins = [ DatalabelsPlugin ];
+  // public pieChartOptions: ChartConfiguration['options'] = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       display: true,
+  //       position: 'bottom',
+  //     },
+  //     datalabels: {
+  //       formatter: (value, ctx) => {
+  //         if (ctx.chart.data.labels) {
+  //           return ctx.chart.data.labels[ctx.dataIndex];
+  //         }
+  //       },
+  //       color: '#FFFFFF'
+  //     },
+  //   }
+  // };
+  // public pieChartData: ChartData<'pie', number[], string | string[]>;
+  //  = {
+  //   labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+  //   datasets: [ {
+  //     data: [ 300, 500, 100 ],
+
+  //   } ],
+  // };
+
 
   // generatePieChartOptions() {
   //   const options: ChartConfiguration['options'] = {
@@ -170,17 +174,3 @@ export class PlayerSelectionsComponent implements OnInit {
 
   //  return chartData;
   // }
-
-
-}
-
-
-/**
- * [
- *  {
- *    pos: '',
- *    options: {},
- *    data: {}
- *  }
- * ]
- */

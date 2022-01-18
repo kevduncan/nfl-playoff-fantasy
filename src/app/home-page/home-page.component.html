@@ -3,7 +3,7 @@
     <mat-nav-list>
       <div style="text-align: center; font-size: 24px; padding: 20px;">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
-      <a mat-list-item [routerLink]="['/breakdown']">Player Selection Graphs</a>
+      <a mat-list-item [routerLink]="['/breakdown']">Player Selection Breakdown</a>
       <!-- <a mat-list-item href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">Entry Form</a> -->
       <a mat-list-item href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats" target="_blank">Scoring Format (PPR)</a>
     </mat-nav-list>
@@ -18,7 +18,9 @@
 
     <div class="pot">
       <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
-      <small>leaderboard should be updated automatically every 1min as box stats are pulled in</small>
+      <small>Check out the selected players breakdown in the menu</small>
+      <br>
+      <small>Leaderboard should be updated automatically every 1min as box stats are pulled in</small>
     </div>
 
     <mat-accordion class="headers-align" multi>

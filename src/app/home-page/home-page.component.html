@@ -3,7 +3,6 @@
     <mat-nav-list>
       <div style="text-align: center; font-size: 24px; padding: 20px;">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
-      <!-- <a mat-list-item href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">Entry Form</a> -->
       <a mat-list-item *ngIf="poolIsOpen$ | async" [routerLink]="['/breakdown']">Player Selection Breakdown</a>
       <a mat-list-item href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats" target="_blank">Scoring Format (PPR)</a>
     </mat-nav-list>
@@ -17,7 +16,7 @@
 
 
     <div class="pot">
-      <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}}</h2>
+      <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} prize pool <span *ngIf="!(poolIsOpen$ | async)">so far</span></h2>
       <p>80% to 1st<br>20% to 2nd</p>
       <i *ngIf="!(poolIsOpen$ | async)">leaderboard will be displayed here after kickoff of the first game</i>
     </div>

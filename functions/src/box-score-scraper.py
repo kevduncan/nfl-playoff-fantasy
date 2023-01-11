@@ -1,6 +1,6 @@
 # separate cloud function since firebase functions does not support pytthon
-
-import espn_scraper as espn
+from urllib.request import urlopen
+import json
 import requests
 
 def scrape_box_scores(request):

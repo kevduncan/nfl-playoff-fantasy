@@ -71,3 +71,46 @@ html, body {
   font-family: sofia-pro, sans-serif;
  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.height {
+  &__100p {
+    height: 100%;
+  }
+}
+
+.width {
+  &__100p {
+    width: 100%;
+  }
+}
+
+.font {
+  &__color {
+    &--venmo {
+      color: #008CFF;
+    }
+  }
+}
+.margin {
+  &__top {
+    &--25px {
+      margin-top: 25px;
+    }
+  }
+  &__bottom {
+    &--25px {
+      margin-bottom: 25px;
+    }
+    &--50px {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.padding {
+  &__all {
+    &--20px {
+      padding: 20px
+    }
+  }
+}

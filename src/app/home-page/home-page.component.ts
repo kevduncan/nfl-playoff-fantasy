@@ -29,6 +29,7 @@ export class HomePageComponent implements OnInit {
   entries$: Observable<any[]>;
   scoreboardData$: Observable<any[]>;
   scoring: any;
+  poolIsOpen$: Observable<boolean>;
 
 
   constructor(
@@ -38,6 +39,12 @@ export class HomePageComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.poolIsOpen$ = this.firestore.doc(`settings/general`).valueChanges().pipe(
+      map((generalSettings: {open: boolean}) => {
+        return generalSettings.open;
+      })
+    );
+
     this.scoring = await this.firestore.doc('scoring/points').valueChanges().pipe(take(1)).toPromise();
 
     this.stats$ = this.firestore.collection('stats').valueChanges();

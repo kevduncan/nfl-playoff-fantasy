@@ -8,8 +8,9 @@ def scrape_box_scores(request):
 
     stats = []
     for id in gameids:
-        box_score = espn.get_url('https://www.espn.com/nfl/boxscore?gameId=' + id + '&xhr=1')['gamepackageJSON']['boxscore']
-        teamAbbrs = [team['team']['abbreviation'] for team in box_score['teams']]
+        url_event = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=" + id
+        NFL_event = urlopen(url_event)
+        box_score = json.loads(NFL_event.read())['boxscore']
 
         # stats only exist once game starts, exit before then
         if 'players' not in box_score:

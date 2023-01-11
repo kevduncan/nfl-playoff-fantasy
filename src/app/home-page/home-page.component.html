@@ -1,15 +1,15 @@
-<mat-sidenav-container>
+<mat-sidenav-container class="height__100p">
   <mat-sidenav #sidenav [(opened)]="opened" class="side-nav">
     <mat-nav-list>
       <div style="text-align: center; font-size: 24px; padding: 20px;">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
-      <a mat-list-item [routerLink]="['/breakdown']">Player Selection Breakdown</a>
       <!-- <a mat-list-item href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">Entry Form</a> -->
+      <a mat-list-item *ngIf="poolIsOpen$ | async" [routerLink]="['/breakdown']">Player Selection Breakdown</a>
       <a mat-list-item href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats" target="_blank">Scoring Format (PPR)</a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="margin__bottom--50px">
     <div class="header-bar">
       <button mat-icon-button (click)="opened = true"><mat-icon>menu</mat-icon></button>
       <h1>NFL Fantasy Playoff Pool</h1>
@@ -17,51 +17,73 @@
 
 
     <div class="pot">
-      <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} Pot</h2>
-      <small>Check out the selected players breakdown in the menu</small>
-      <br>
-      <small>Leaderboard should be updated automatically every 1min as box stats are pulled in</small>
+      <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}}</h2>
+      <p>80% to 1st<br>20% to 2nd</p>
+      <i *ngIf="!(poolIsOpen$ | async)">leaderboard will be displayed here after kickoff of the first game</i>
     </div>
 
-    <mat-accordion class="headers-align" multi>
-      <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index; trackBy: totalPointsChange" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header class="header-padding">
-          <mat-panel-title [ngSwitch]="idx">
-            <span *ngSwitchCase="0" style="font-size: 20px;">
-              <span style="margin-right: 5px;">🥇</span>
-              {{ entry.teamName }}
-            </span>
-            <span *ngSwitchCase="1" style="font-size: 18px;">
-              <span style="margin-right: 5px;">🥈</span>
-              {{ entry.teamName }}
-            </span>
-            <span *ngSwitchDefault>
-              <span style="margin-right: 5px;">{{idx + 1}}. </span>
-              {{ entry.teamName }}
-            </span>
-          </mat-panel-title>
-          <mat-panel-description style="display: flex; align-items: center; margin-right: 0;">
-            <span style="font-size: 10px;">{{ entry.remainingPlayers}} alive</span>
-            <span></span>
-            <span style="margin-left: 7px;">{{ entry.totalPoints.toFixed(2) }}pts</span>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="roster-info">
-          <mat-selection-list [multiple]="false">
-            <mat-list-option *ngFor="let player of entry.roster" (click)="openStatsDialog(player)">
-              <mat-icon mat-list-icon class="roster-position">
-                <span [class.eliminated]="player.eliminated">{{ player.pos }}</span>
-              </mat-icon>
-              <div mat-line class="player-info">
-                <img src="{{player.teamLogo}}" alt="" style="width: 24px">
-                <span [class.eliminated]="player.eliminated" [class.alive]="!player.eliminated"> {{ player.name.split('(')[0] }}</span>
-                <span> {{ player.points.toFixed(2) }}pts</span>
-              </div>
-            </mat-list-option>
-          </mat-selection-list>
+    <div class="mobile-widths center-margin">
+      <mat-accordion class="headers-align" multi *ngIf="poolIsOpen$ | async; else notOpen">
+        <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index; trackBy: totalPointsChange" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header class="header-padding">
+            <mat-panel-title [ngSwitch]="idx">
+              <span *ngSwitchCase="0" style="font-size: 20px;">
+                <span style="margin-right: 5px;">🥇</span>
+                {{ entry.teamName }}
+              </span>
+              <span *ngSwitchCase="1" style="font-size: 18px;">
+                <span style="margin-right: 5px;">🥈</span>
+                {{ entry.teamName }}
+              </span>
+              <span *ngSwitchDefault>
+                <span style="margin-right: 5px;">{{idx + 1}}. </span>
+                {{ entry.teamName }}
+              </span>
+            </mat-panel-title>
+            <mat-panel-description style="display: flex; align-items: center; margin-right: 0;">
+              <span style="font-size: 10px;">{{ entry.remainingPlayers}} alive</span>
+              <span></span>
+              <span style="margin-left: 7px;">{{ entry.totalPoints.toFixed(2) }}pts</span>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="roster-info">
+            <mat-selection-list [multiple]="false">
+              <mat-list-option *ngFor="let player of entry.roster" (click)="openStatsDialog(player)">
+                <mat-icon mat-list-icon class="roster-position">
+                  <span [class.eliminated]="player.eliminated">{{ player.pos }}</span>
+                </mat-icon>
+                <div mat-line class="player-info">
+                  <img src="{{player.teamLogo}}" alt="" style="width: 24px">
+                  <span [class.eliminated]="player.eliminated" [class.alive]="!player.eliminated"> {{ player.name.split('(')[0] }}</span>
+                  <span> {{ player.points.toFixed(2) }}pts</span>
+                </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <ng-template #notOpen>
+        <div class="padding__all--20px">
+          <div class="center-margin mobile-widths">
+            <a class="width__100p blue-button" mat-raised-button href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">SUBMIT LINEUP</a>
+          </div>
+          <div  class="margin__top--25px">
+            <h3><strong>$20 SINGLE ENTRY</strong></h3>
+          </div>
+          <p>Venmo <a href="https://venmo.com/u/kev_duncan" target="_blank" class="font__color--venmo">@kev_duncan</a> and include your team name in the payment memo. Please pay when you submit your lineup - lineups that have not been paid for by kickoff of the first game will not count. Only the last submitted lineup per Venmo handle will be kept.</p>
+          <p>Create a roster from any of the 14 playoff teams with the following lineup, choose your lineup carefully as some teams may play more games than others:</p>
+          <ul>
+            <li>2 QB</li>
+            <li>2 RB</li>
+            <li>3 WR</li>
+            <li>2 TE</li>
+            <li>1 FLEX (RB/WR/TE)</li>
+          </ul>
+          <p><strong>Do not select the same player more than once or your entry will not count.</strong><br> If you mess up/want to change your lineup, submit the form again and enter the same Venmo handle - whenever a new entry is added with the same Venmo handle, the old entry will be automatically removed. The email question will be used to email you a copy of your responses so you can see what lineup you picked until kickoff of the first game when all lineups will be viewable on the site.</p>
+          <p>The winner will be whichever lineup accumulates the most points at the end of the Super Bowl based on ESPN PPR scoring. The one exception is 2pt conversions, I haven't been able to pull these automatically so they will be omitted from the scoring. In the case of a tie, the tiebreak will be whoever's roster has the least average ownership %.</p>
         </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+      </ng-template>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

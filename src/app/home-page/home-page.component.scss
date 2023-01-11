@@ -18,6 +18,7 @@ h1 {
 .pot {
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .roster-position {
@@ -52,4 +53,20 @@ h1 {
 .header-padding {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.center-margin {
+  margin: 0 auto;
+}
+.blue-button {
+  background-color: #008CFF;
+}
+
+.mobile-widths {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .mobile-widths {
+    width: 100%;
+  };
 }

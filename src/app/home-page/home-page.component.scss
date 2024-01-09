@@ -1,5 +1,5 @@
 h1 {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -23,7 +23,7 @@ h1 {
 
 .roster-position {
   font-size: 14px !important;
-  font-family: 'Roboto' sans-serif !important;
+  font-family: "Roboto" sans-serif !important;
 }
 
 .player-info {
@@ -59,7 +59,7 @@ h1 {
   margin: 0 auto;
 }
 .blue-button {
-  background-color: #008CFF;
+  background-color: #008cff;
 }
 
 .mobile-widths {
@@ -68,5 +68,21 @@ h1 {
 @media only screen and (max-width: 768px) {
   .mobile-widths {
     width: 100%;
-  };
+  }
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+.venmo-button {
+  background-color: #009cde;
+  border-radius: 5px;
+}
+.venmo-logo {
+  display: block;
+  padding: 10px;
+  height: 30px;
+}
+.left-10 {
+  margin-left: 10px;
 }

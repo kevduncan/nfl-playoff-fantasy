@@ -1,59 +1,101 @@
 <mat-sidenav-container class="height__100p">
   <mat-sidenav #sidenav [(opened)]="opened" class="side-nav">
     <mat-nav-list>
-      <div style="text-align: center; font-size: 24px; padding: 20px;">🏈</div>
+      <div style="text-align: center; font-size: 24px; padding: 20px">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
-      <a mat-list-item *ngIf="poolIsOpen$ | async" [routerLink]="['/breakdown']">Player Selection Breakdown</a>
-      <a mat-list-item href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats" target="_blank">Scoring Format (PPR)</a>
+      <a mat-list-item *ngIf="poolIsOpen$ | async" [routerLink]="['/breakdown']"
+        >Player Selection Breakdown</a
+      >
+      <a
+        mat-list-item
+        href="https://support.espn.com/hc/en-us/articles/360003914032-Scoring-Formats"
+        target="_blank"
+        >Scoring Format (PPR)</a
+      >
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content class="margin__bottom--50px">
     <div class="header-bar">
-      <button mat-icon-button (click)="opened = true"><mat-icon>menu</mat-icon></button>
+      <button mat-icon-button (click)="opened = true">
+        <mat-icon>menu</mat-icon>
+      </button>
       <h1>NFL Fantasy Playoff Pool</h1>
     </div>
 
-
     <div class="pot">
-      <h2>💰 ${{ (scoreboardData$ | async)?.length * 20}} prize pool <span *ngIf="!(poolIsOpen$ | async)">so far</span></h2>
-      <p>80% to 1st<br>20% to 2nd</p>
-      <i *ngIf="!(poolIsOpen$ | async)">leaderboard will be displayed here after kickoff of the first game</i>
+      <h2>
+        💰 ${{ (scoreboardData$ | async)?.length * 20 }} prize pool
+        <span *ngIf="!(poolIsOpen$ | async)">so far</span>
+        <sup>*</sup>
+      </h2>
+      <p>80% to 1st<br />20% to 2nd</p>
+      <i *ngIf="!(poolIsOpen$ | async)"
+        >leaderboard will be displayed here after kickoff of the first game</i
+      >
     </div>
 
-    <div class="mobile-widths center-margin">
-      <mat-accordion class="headers-align" multi *ngIf="poolIsOpen$ | async; else notOpen">
-        <mat-expansion-panel *ngFor="let entry of (scoreboardData$ | async); let idx = index; trackBy: totalPointsChange" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <div class="mobile-widths center-margin margin__bottom--50px">
+      <mat-accordion
+        class="headers-align"
+        multi
+        *ngIf="poolIsOpen$ | async; else notOpen"
+      >
+        <mat-expansion-panel
+          *ngFor="
+            let entry of scoreboardData$ | async;
+            let idx = index;
+            trackBy: totalPointsChange
+          "
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
           <mat-expansion-panel-header class="header-padding">
             <mat-panel-title [ngSwitch]="idx">
-              <span *ngSwitchCase="0" style="font-size: 20px;">
-                <span style="margin-right: 5px;">🥇</span>
+              <span *ngSwitchCase="0" style="font-size: 20px">
+                <span style="margin-right: 5px">🥇</span>
                 {{ entry.teamName }}
               </span>
-              <span *ngSwitchCase="1" style="font-size: 18px;">
-                <span style="margin-right: 5px;">🥈</span>
+              <span *ngSwitchCase="1" style="font-size: 18px">
+                <span style="margin-right: 5px">🥈</span>
                 {{ entry.teamName }}
               </span>
               <span *ngSwitchDefault>
-                <span style="margin-right: 5px;">{{idx + 1}}. </span>
+                <span style="margin-right: 5px">{{ idx + 1 }}. </span>
                 {{ entry.teamName }}
               </span>
             </mat-panel-title>
-            <mat-panel-description style="display: flex; align-items: center; margin-right: 0;">
-              <span style="font-size: 10px;">{{ entry.remainingPlayers}} alive</span>
+            <mat-panel-description
+              style="display: flex; align-items: center; margin-right: 0"
+            >
+              <span style="font-size: 10px"
+                >{{ entry.remainingPlayers }} alive</span
+              >
               <span></span>
-              <span style="margin-left: 7px;">{{ entry.totalPoints.toFixed(2) }}pts</span>
+              <span style="margin-left: 7px"
+                >{{ entry.totalPoints.toFixed(2) }}pts</span
+              >
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="roster-info">
             <mat-selection-list [multiple]="false">
-              <mat-list-option *ngFor="let player of entry.roster" (click)="openStatsDialog(player)">
+              <mat-list-option
+                *ngFor="let player of entry.roster"
+                (click)="openStatsDialog(player)"
+              >
                 <mat-icon mat-list-icon class="roster-position">
-                  <span [class.eliminated]="player.eliminated">{{ player.pos }}</span>
+                  <span [class.eliminated]="player.eliminated">{{
+                    player.pos
+                  }}</span>
                 </mat-icon>
                 <div mat-line class="player-info">
-                  <img src="{{player.teamLogo}}" alt="" style="width: 24px">
-                  <span [class.eliminated]="player.eliminated" [class.alive]="!player.eliminated"> {{ player.name.split('(')[0] }}</span>
+                  <img src="{{ player.teamLogo }}" alt="" style="width: 24px" />
+                  <span
+                    [class.eliminated]="player.eliminated"
+                    [class.alive]="!player.eliminated"
+                  >
+                    {{ player.name.split("(")[0] }}</span
+                  >
                   <span> {{ player.points.toFixed(2) }}pts</span>
                 </div>
               </mat-list-option>
@@ -62,15 +104,45 @@
         </mat-expansion-panel>
       </mat-accordion>
       <ng-template #notOpen>
-        <div class="padding__all--20px">
+        <div class="padding__all--20px margin__bottom--50px">
           <div class="center-margin mobile-widths">
-            <a class="width__100p blue-button" mat-raised-button href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link" target="_blank">SUBMIT LINEUP</a>
+            <a
+              class="width__100p blue-button"
+              mat-raised-button
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefTWea9aFMItxXq30BL7ssUDSAdS0JXlKlm0zzZmWFXkmW5w/viewform?usp=sf_link"
+              target="_blank"
+              >SUBMIT LINEUP</a
+            >
           </div>
-          <div  class="margin__top--25px">
+          <div class="margin__top--25px">
             <h3><strong>$20 SINGLE ENTRY</strong></h3>
           </div>
-          <p>Venmo <a href="https://venmo.com/u/kev_duncan" target="_blank" class="font__color--venmo">@kev_duncan</a> and include your team name in the payment memo. Please pay when you submit your lineup - lineups that have not been paid for by kickoff of the first game will not count. Only the last submitted lineup per Venmo handle will be kept.</p>
-          <p>Create a roster from any of the 14 playoff teams with the following lineup, choose your lineup carefully as some teams may play more games than others:</p>
+          <a
+            class="flex-container margin__bottom--10px"
+            href="https://venmo.com/u/kev_duncan"
+            target="_blank"
+          >
+            <div class="venmo-button">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAxIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTAxIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWluIG1lZXQiPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IldoaXRlIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IkxvZ28iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTE2LjY2NjA0ODQsMC4xOCBDMTcuMzQ2NjYyNiwxLjMzOTA5OTEgMTcuNjUzNTA2OSwyLjUzMjk3Mjk3IDE3LjY1MzUwNjksNC4wNDEwODEwOCBDMTcuNjUzNTA2OSw4Ljg1MTE3MTE3IDEzLjY3MTM0NiwxNS4wOTk4MTk4IDEwLjQzOTM0NiwxOS40ODc1Njc2IEwzLjA1NzI1OTUyLDE5LjQ4NzU2NzYgTDAuMDk2NjMxNDg3OSwxLjIzMzE1MzE1IEw2LjU2MDQ1Njc1LDAuNjAwMzYwMzYgTDguMTI1NzgyMDEsMTMuNTg5NTQ5NSBDOS41ODgzNTk4NiwxMS4xMzI2MTI2IDExLjM5MzI1NDMsNy4yNzE1MzE1MyAxMS4zOTMyNTQzLDQuNjM5MDk5MSBDMTEuMzkzMjU0MywzLjE5ODE5ODIgMTEuMTUzODU5OSwyLjIxNjc1Njc2IDEwLjc3OTc0MDUsMS40MDg2NDg2NSBMMTYuNjY2MDQ4NCwwLjE4IFogTTI0LjkwNzE1OTIsMTEuNjkzODczOSBDMjQuOTA3MTU5MiwxMy44MzY3NTY4IDI2LjA2MjcxOCwxNC42Nzc0Nzc1IDI3LjU5NDY2NzgsMTQuNjc3NDc3NSBDMjkuMjYyOTE1MiwxNC42Nzc0Nzc1IDMwLjg2MDIxOCwxNC4yNTcxMTcxIDMyLjkzNjMwOTcsMTMuMTY5MTg5MiBMMzIuMTU0MzQ2LDE4LjY0NDUwNDUgQzMwLjY5MTU5MzQsMTkuMzgxNDQxNCAyOC40MTE5MjkxLDE5Ljg3MzE1MzIgMjYuMTk5MTkwMywxOS44NzMxNTMyIEMyMC41ODYzNTEyLDE5Ljg3MzE1MzIgMTguNTc3NTM0NiwxNi4zNjMyNDMyIDE4LjU3NzUzNDYsMTEuOTc1MzE1MyBDMTguNTc3NTM0Niw2LjI4ODEwODExIDIxLjg0NTE4MTcsMC4yNDkzNjkzNjkgMjguNTgxOTUxNiwwLjI0OTM2OTM2OSBDMzIuMjkwOTkzMSwwLjI0OTM2OTM2OSAzNC4zNjQ5ODc5LDIuMzkyMDcyMDcgMzQuMzY0OTg3OSw1LjM3NTY3NTY4IEMzNC4zNjUzMzc0LDEwLjE4NTU4NTYgMjguMzc4Mzc4OSwxMS42NTkwOTkxIDI0LjkwNzE1OTIsMTEuNjkzODczOSBaIE0yNS4wNDM0NTY3LDguMjE4MTk4MiBDMjYuMjMyOTE1Miw4LjIxODE5ODIgMjkuMjI3NDQyOSw3LjY1NzExNzEyIDI5LjIyNzQ0MjksNS45MDIxNjIxNiBDMjkuMjI3NDQyOSw1LjA1OTQ1OTQ2IDI4LjY0OTU3NjEsNC42MzkwOTkxIDI3Ljk2ODYxMjUsNC42MzkwOTkxIEMyNi43NzcyMzE4LDQuNjM5MDk5MSAyNS4yMTM4Mjg3LDYuMTEyMjUyMjUgMjUuMDQzNDU2Nyw4LjIxODE5ODIgWiBNNTMuMDE4NzA5Myw0LjQ2MzYwMzYgQzUzLjAxODcwOTMsNS4xNjU1ODU1OSA1Mi45MTU0Mzc3LDYuMTgzNzgzNzggNTIuODEyNjkwMyw2Ljg0OTE4OTE5IEw1MC44NzMwNzA5LDE5LjQ4NzM4NzQgTDQ0LjU3OTA5MzQsMTkuNDg3Mzg3NCBMNDYuMzQ4MzQwOCw3LjkwMjE2MjE2IEM0Ni4zODE4OTEsNy41ODc5Mjc5MyA0Ni40ODQ5ODc5LDYuOTU1MzE1MzIgNDYuNDg0OTg3OSw2LjYwNDMyNDMyIEM0Ni40ODQ5ODc5LDUuNzYxNjIxNjIgNDUuOTc0Mzk2Miw1LjU1MTM1MTM1IDQ1LjM2MDUzMjksNS41NTEzNTEzNSBDNDQuNTQ1MTkzOCw1LjU1MTM1MTM1IDQzLjcyNzkzMjUsNS45MzcxMTcxMiA0My4xODM2MTU5LDYuMjE4NzM4NzQgTDQxLjE3Njg5NjIsMTkuNDg3NTY3NiBMMzQuODQ3NDQ2NCwxOS40ODc1Njc2IEwzNy43MzkwNTE5LDAuNTY1OTQ1OTQ2IEw0My4yMTcxNjYxLDAuNTY1OTQ1OTQ2IEw0My4yODY1MzgxLDIuMDc2MjE2MjIgQzQ0LjU3ODkxODcsMS4xOTg3Mzg3NCA0Ni4yODA3MTYzLDAuMjQ5NzI5NzMgNDguNjk1MjgwMywwLjI0OTcyOTczIEM1MS44OTQyNTQzLDAuMjQ5MzY5MzY5IDUzLjAxODcwOTMsMS45MzQ5NTQ5NSA1My4wMTg3MDkzLDQuNDYzNjAzNiBaIE03MS43MDM3MDkzLDIuMzIwNzIwNzIgQzczLjUwNjMzMjIsMC45ODgxMDgxMDggNzUuMjA4NDc5MiwwLjI0OTM2OTM2OSA3Ny41NTU0MTg3LDAuMjQ5MzY5MzY5IEM4MC43ODcyNDM5LDAuMjQ5MzY5MzY5IDgxLjkxMTM0OTUsMS45MzQ5NTQ5NSA4MS45MTEzNDk1LDQuNDYzNjAzNiBDODEuOTExMzQ5NSw1LjE2NTU4NTU5IDgxLjgwODQyNzMsNi4xODM3ODM3OCA4MS43MDU2Nzk5LDYuODQ5MTg5MTkgTDc5Ljc2ODMzMjIsMTkuNDg3Mzg3NCBMNzMuNDcyNjA3MywxOS40ODczODc0IEw3NS4yNzU1Nzk2LDcuNjU3Mjk3MyBDNzUuMzA4NzgwMyw3LjM0MTA4MTA4IDc1LjM3ODUwMTcsNi45NTUzMTUzMiA3NS4zNzg1MDE3LDYuNzEwNjMwNjMgQzc1LjM3ODUwMTcsNS43NjE4MDE4IDc0Ljg2NzczNTMsNS41NTEzNTEzNSA3NC4yNTQwNDY3LDUuNTUxMzUxMzUgQzczLjQ3MjI1NzgsNS41NTEzNTEzNSA3Mi42OTA4MTgzLDUuOTAyMzQyMzQgNzIuMTEwNjc5OSw2LjIxODczODc0IEw3MC4xMDQzMDk3LDE5LjQ4NzU2NzYgTDYzLjgxMDE1NzQsMTkuNDg3NTY3NiBMNjUuNjEzMTI5OCw3LjY1NzQ3NzQ4IEM2NS42NDYzMzA0LDcuMzQxMjYxMjYgNjUuNzEzOTU1LDYuOTU1NDk1NSA2NS43MTM5NTUsNi43MTA4MTA4MSBDNjUuNzEzOTU1LDUuNzYxOTgxOTggNjUuMjAzMDEzOCw1LjU1MTUzMTUzIDY0LjU5MTQyMjEsNS41NTE1MzE1MyBDNjMuNzc0MzM1Niw1LjU1MTUzMTUzIDYyLjk1ODgyMTgsNS45MzcyOTczIDYyLjQxNDUwNTIsNi4yMTg5MTg5MiBMNjAuNDA2MjEyOCwxOS40ODc3NDc3IEw1NC4wNzg4NTk5LDE5LjQ4Nzc0NzcgTDU2Ljk3MDExNTksMC41NjYxMjYxMjYgTDYyLjM4MTMwNDUsMC41NjYxMjYxMjYgTDYyLjU1MTMyNywyLjE0NTc2NTc3IEM2My44MTAxNTc0LDEuMTk5MDk5MSA2NS41MTA1NTcxLDAuMjUwMDkwMDkgNjcuNzkwMDQ2NywwLjI1MDA5MDA5IEM2OS43NjM3NDA1LDAuMjQ5MzY5MzY5IDcxLjA1NTk0NjQsMS4xMjcwMjcwMyA3MS43MDM3MDkzLDIuMzIwNzIwNzIgWiBNODMuNTUwNTksMTEuNzk5ODE5OCBDODMuNTUwNTksNS44MzI3OTI3OSA4Ni42MTIwNDMzLDAuMjQ5MzY5MzY5IDkzLjY1NTgzMjIsMC4yNDkzNjkzNjkgQzk4Ljk2MzM5OTcsMC4yNDkzNjkzNjkgMTAwLjkwMzU0MywzLjQ3OTgxOTgyIDEwMC45MDM1NDMsNy45Mzg3Mzg3NCBDMTAwLjkwMzU0MywxMy44MzY1NzY2IDk3Ljg3NTExNTksMTkuOTQ0MzI0MyA5MC42NjE0NzkyLDE5Ljk0NDMyNDMgQzg1LjMxOTY2MjYsMTkuOTQ0MzI0MyA4My41NTA1OSwxNi4zMjgxMDgxIDgzLjU1MDU5LDExLjc5OTgxOTggWiBNOTQuNDM3NDQ2NCw3LjgzMjc5Mjc5IEM5NC40Mzc0NDY0LDYuMjg4MTA4MTEgOTQuMDYyODAyOCw1LjIzNDk1NDk1IDkyLjk0MDk2ODksNS4yMzQ5NTQ5NSBDOTAuNDU3MDMyOSw1LjIzNDk1NDk1IDg5Ljk0Njk2NTQsOS43NjMwNjMwNiA4OS45NDY5NjU0LDEyLjA3OTQ1OTUgQzg5Ljk0Njk2NTQsMTMuODM2NzU2OCA5MC40MjM4MzIyLDE0LjkyNDMyNDMgOTEuNTQ1MzE2NiwxNC45MjQzMjQzIEM5My44OTMxMjk4LDE0LjkyNDMyNDMgOTQuNDM3NDQ2NCwxMC4xNDkwMDkgOTQuNDM3NDQ2NCw3LjgzMjc5Mjc5IFoiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg"
+                alt=""
+                class="venmo-logo"
+              />
+            </div>
+            <span class="font__color--venmo margin__left--10px"
+              >@kev_duncan</span
+            >
+          </a>
+
+          <p>
+            Please pay when you submit your lineup. Only the last submitted
+            lineup per Venmo handle will be kept.
+          </p>
+          <p>
+            Create a roster from any of the 14 playoff teams with the following
+            lineup, choose your lineup carefully as some teams may play more
+            games than others:
+          </p>
           <ul>
             <li>2 QB</li>
             <li>2 RB</li>
@@ -78,11 +150,32 @@
             <li>2 TE</li>
             <li>1 FLEX (RB/WR/TE)</li>
           </ul>
-          <p><strong>Do not select the same player more than once or your entry will not count.</strong><br> If you mess up/want to change your lineup, submit the form again and enter the same Venmo handle - whenever a new entry is added with the same Venmo handle, the old entry will be automatically removed. The email question will be used to email you a copy of your responses so you can see what lineup you picked until kickoff of the first game when all lineups will be viewable on the site.</p>
-          <p>The winner will be whichever lineup accumulates the most points at the end of the Super Bowl based on ESPN PPR scoring. The one exception is 2pt conversions, I haven't been able to pull these automatically so they will be omitted from the scoring. In the case of a tie, the tiebreak will be whoever's roster has the least average ownership %.</p>
+          <p>
+            <strong
+              >Do not select the same player more than once or your entry will
+              not count.</strong
+            ><br />
+            If you mess up/want to change your lineup, submit the form again and
+            enter the same Venmo handle - whenever a new entry is added with the
+            same Venmo handle, the old entry will be automatically removed. The
+            email question will be used to email you a copy of your responses so
+            you can see what lineup you picked until kickoff of the first game
+            when all lineups will be viewable on the site.
+          </p>
+          <p>
+            The winner will be whichever lineup accumulates the most points at
+            the end of the Super Bowl based on ESPN PPR scoring. The one
+            exception is 2pt conversions, I haven't been able to pull these
+            automatically so they will be omitted from the scoring. In the case
+            of a tie, the tiebreak will be whoever's roster has the least
+            average ownership %.
+          </p>
         </div>
       </ng-template>
     </div>
+    <div class="text__align--center">
+      <sup>*</sup
+      ><i>this pool is just for fun and no money is kept for organizing it</i>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-

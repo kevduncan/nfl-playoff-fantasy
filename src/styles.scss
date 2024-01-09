@@ -1,45 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
-
+@import "~@angular/material/theming";
 
 $custom-typography: mat-typography-config(
-    $font-family: 'roboto'
+  $font-family: "roboto",
 );
-
 
 @include mat-core($custom-typography);
 
 $custom-orange: (
-    50: #fff3e0,
-    100: #ffe0b2,
-    200: #ffcc80,
-    300: #ffb74d,
-    400: #ffa726,
-    500: #ff9800,
-    600: #fb8c00,
-    700: #f57c00,
-    800: #ef6c00,
-    900: #e65100,
-    A100: #ffd180,
-    A200: #ffab40,
-    A400: #ff9100,
-    A700: #ff6d00,
-    contrast: (
-        50: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: white,
-        600: white,
-        700: white,
-        800: white,
-        900: white,
-        A100: $black-87-opacity,
-        A200: $black-87-opacity,
-        A400: $black-87-opacity,
-        A700: white,
-    )
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  ),
 );
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
@@ -52,25 +50,31 @@ $firestarter-accent: mat-palette($mat-green, A200, A100, A400);
 $firestarter-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$firestarter-theme: mat-dark-theme($firestarter-primary, $firestarter-accent, $firestarter-warn);
+$firestarter-theme: mat-dark-theme(
+  $firestarter-primary,
+  $firestarter-accent,
+  $firestarter-warn
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($firestarter-theme);
 
-
-
-html, body {
+html,
+body {
   height: 100%;
   background-color: #2a2e35;
-  color: #FFFFFF;
- }
- body {
+  color: #ffffff;
+}
+body {
   margin: 0;
   font-family: sofia-pro, sans-serif;
- }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .height {
   &__100p {
@@ -87,7 +91,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .font {
   &__color {
     &--venmo {
-      color: #008CFF;
+      color: #008cff;
     }
   }
 }
@@ -98,6 +102,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
   }
   &__bottom {
+    &--10px {
+      margin-bottom: 10px;
+    }
     &--25px {
       margin-bottom: 25px;
     }
@@ -105,12 +112,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       margin-bottom: 50px;
     }
   }
+  &__left {
+    &--10px {
+      margin-left: 10px;
+    }
+  }
 }
 
 .padding {
   &__all {
     &--20px {
-      padding: 20px
+      padding: 20px;
+    }
+  }
+}
+
+.text {
+  &__align {
+    &--center {
+      text-align: center;
     }
   }
 }

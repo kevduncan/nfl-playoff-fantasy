@@ -134,3 +134,17 @@ body {
     }
   }
 }
+
+.display {
+  &__flex {
+    display: flex;
+  }
+}
+
+.flex {
+  &__justify {
+    &--center {
+      justify-content: center;
+    }
+  }
+}

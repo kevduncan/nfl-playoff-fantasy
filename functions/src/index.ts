@@ -13,6 +13,9 @@ export const updateStats = functions.https.onRequest(async (request, response) =
   const firestore = admin.firestore();
   const scrapedStats = request.body;
 
+  // TODO: if empty request body (so no stats), return without reading from DB, saves $ from DB writes
+
+
   const existingStats = (await firestore.collection("stats").get()).docs.map((doc: any) => doc.data());
   const entries = (await firestore.collection("entries").get()).docs.map((doc: any) => doc.data());
   const entryPlayers = _.uniq(_.flatten(entries.map((entry: any) => entry.players)));

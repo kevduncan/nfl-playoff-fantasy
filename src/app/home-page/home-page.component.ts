@@ -67,8 +67,7 @@ export class HomePageComponent implements OnInit {
       .valueChanges()
       .pipe(
         map((generalSettings: { open: boolean }) => {
-          return true;
-          // return generalSettings.open;
+          return generalSettings.open;
         }),
         tap(() => (this.loading = false))
       );

@@ -51,10 +51,18 @@
 
   <mat-sidenav-content class="margin__bottom--50px">
     <div class="header-bar">
-      <button mat-icon-button (click)="opened = true">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <div class="margin__right--10px">
+        <button mat-icon-button (click)="opened = true">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
       <h1>NFL Fantasy Playoff Pool</h1>
+    </div>
+
+    <div *ngIf="!(user$ | async)" class="display__flex padding__all--20px">
+      <p class="font__color--green margin__bottom--0">
+        Sign-in from the menu to highlight your own entry
+      </p>
     </div>
 
     <div class="pot">

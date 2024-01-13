@@ -67,7 +67,8 @@ export class HomePageComponent implements OnInit {
       .valueChanges()
       .pipe(
         map((generalSettings: { open: boolean }) => {
-          return generalSettings.open;
+          return true;
+          // return generalSettings.open;
         }),
         tap(() => (this.loading = false))
       );
@@ -206,6 +207,7 @@ export class HomePageComponent implements OnInit {
       });
 
       this.signInEmail = null;
+      this.opened = false;
     } catch (err) {
       console.error(err);
 

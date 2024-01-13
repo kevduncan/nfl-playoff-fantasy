@@ -185,6 +185,11 @@ body {
       font-size: 24px;
     }
   }
+  &__color {
+    &--green {
+      color: map-get($mat-green, 300);
+    }
+  }
 }
 
 .fill-space {

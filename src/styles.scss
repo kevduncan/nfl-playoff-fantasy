@@ -102,6 +102,9 @@ body {
     }
   }
   &__bottom {
+    &--0 {
+      margin-bottom: 0 !important;
+    }
     &--10px {
       margin-bottom: 10px;
     }
@@ -116,11 +119,27 @@ body {
     &--10px {
       margin-left: 10px;
     }
+    &--20px {
+      margin-left: 20px;
+    }
+  }
+  &__right {
+    &--10px {
+      margin-right: 10px;
+    }
+  }
+  &__all {
+    &--10px {
+      margin: 10px;
+    }
   }
 }
 
 .padding {
   &__all {
+    &--10px {
+      padding: 10px;
+    }
     &--20px {
       padding: 20px;
     }
@@ -142,9 +161,37 @@ body {
 }
 
 .flex {
+  &__align {
+    &--center {
+      align-items: center;
+    }
+  }
   &__justify {
     &--center {
       justify-content: center;
     }
   }
+}
+
+.font {
+  &__size {
+    &--12px {
+      font-size: 12px;
+    }
+    &--18px {
+      font-size: 18px;
+    }
+    &--24px {
+      font-size: 24px;
+    }
+  }
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.green-border {
+  border: 1px solid map-get($mat-green, 200);
+  border-radius: 5px;
 }

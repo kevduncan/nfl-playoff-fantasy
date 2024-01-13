@@ -14,7 +14,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MaterialModule } from './material.module';
 import { StatEntryComponent } from './stat-entry/stat-entry.component';
 import { CommonModule } from '@angular/common';
-import { PlayerStatsDialogComponent } from './player-stats-dialog/player-stats-dialog.component';
+import { PlayerStatsDialogComponent } from './_dialogs/player-stats-dialog/player-stats-dialog.component';
 import { PointsSortPipe } from './_pipes/points-sort.pipe';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
@@ -28,7 +28,7 @@ import { PlayerSelectionsComponent } from './player-selections/player-selections
     StatEntryComponent,
     PlayerStatsDialogComponent,
     PointsSortPipe,
-    PlayerSelectionsComponent
+    PlayerSelectionsComponent,
   ],
   imports: [
     CommonModule,
@@ -41,9 +41,9 @@ import { PlayerSelectionsComponent } from './player-selections/player-selections
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     MaterialModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

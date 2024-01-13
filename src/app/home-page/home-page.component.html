@@ -1,6 +1,6 @@
 <mat-sidenav-container class="height__100p">
   <mat-sidenav #sidenav [(opened)]="opened" class="side-nav">
-    <mat-nav-list>
+    <mat-nav-list class="nav-list-container">
       <div style="text-align: center; font-size: 24px; padding: 20px">🏈</div>
       <a mat-list-item [routerLink]="['/']">Leaderboard</a>
       <a mat-list-item *ngIf="poolIsOpen$ | async" [routerLink]="['/breakdown']"
@@ -12,6 +12,40 @@
         target="_blank"
         >Scoring Format (PPR)</a
       >
+      <span class="fill-space"></span>
+      <div
+        class="margin__left--10px margin__right--10px sign-in-container"
+        *ngIf="!(user$ | async)"
+      >
+        <mat-form-field appearance="outline" class="width__100p" color="accent">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="signInEmail" />
+        </mat-form-field>
+        <button
+          mat-stroked-button
+          color="accent"
+          class="width__100p"
+          (click)="sendPasswordlessSignInLink()"
+        >
+          <mat-icon class="margin__right--10px">account_circle</mat-icon>
+          Get Sign-in Link
+        </button>
+      </div>
+      <div
+        class="margin__left--10px margin__right--10px sign-in-container"
+        *ngIf="user$ | async as user"
+      >
+        <h4>{{ user.email }}</h4>
+        <button
+          mat-stroked-button
+          color="accent"
+          class="width__100p"
+          (click)="signOut()"
+        >
+          <mat-icon class="margin__right--10px">logout</mat-icon>
+          Sign Out
+        </button>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -106,6 +140,87 @@
             average ownership %.
           </p>
         </div>
+
+        <div
+          *ngIf="userEntry"
+          class="headers-align margin__left--10px margin__right--10px margin__bottom--50px"
+        >
+          <h3>My Entry</h3>
+          <mat-expansion-panel
+            class="green-border"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header class="header-padding">
+              <mat-panel-title
+                [ngSwitch]="userRank"
+                class="flex__align--center"
+              >
+                <div>
+                  <span *ngSwitchCase="0" style="font-size: 24px">🥇</span>
+                  <span *ngSwitchCase="1" style="font-size: 18px">🥈</span>
+                  <span *ngSwitchDefault>{{ userRank }}.</span>
+                </div>
+                <div class="margin__left--10px">
+                  <span
+                    [ngClass]="{
+                      'font__size--24px':
+                        userRank === 0 && entry.teamName.length <= 25,
+                      'font__size--18px':
+                        userRank === 1 && entry.teamName.length <= 25,
+                      'font__size--12px':
+                        userRank > 1 || entry.teamName.length > 25
+                    }"
+                    >{{ userEntry.teamName }}</span
+                  >
+                </div>
+              </mat-panel-title>
+              <mat-panel-description
+                style="display: flex; align-items: center; margin-right: 0"
+              >
+                <span style="font-size: 10px"
+                  >{{ userEntry.remainingPlayers }} alive</span
+                >
+                <span></span>
+                <span style="margin-left: 7px"
+                  >{{ userEntry.totalPoints.toFixed(2) }}pts</span
+                >
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="roster-info">
+              <mat-selection-list [multiple]="false">
+                <mat-list-option
+                  *ngFor="let player of userEntry.roster"
+                  (click)="openStatsDialog(player)"
+                >
+                  <mat-icon mat-list-icon class="roster-position">
+                    <span [class.eliminated]="player.eliminated">{{
+                      player.pos
+                    }}</span>
+                  </mat-icon>
+                  <div mat-line class="player-info">
+                    <img
+                      src="{{ player.teamLogo }}"
+                      alt=""
+                      style="width: 24px"
+                    />
+                    <span
+                      [class.eliminated]="player.eliminated"
+                      [class.alive]="!player.eliminated"
+                    >
+                      {{ player.name.split("(")[0] }}</span
+                    >
+                    <span> {{ player.points.toFixed(2) }}pts</span>
+                  </div>
+                </mat-list-option>
+              </mat-selection-list>
+            </div>
+          </mat-expansion-panel>
+        </div>
+
+        <div class="margin__left--10px margin__right--10px">
+          <h3>Leaderboard</h3>
+        </div>
         <mat-accordion class="headers-align" multi>
           <mat-expansion-panel
             *ngFor="
@@ -117,19 +232,24 @@
             (closed)="panelOpenState = false"
           >
             <mat-expansion-panel-header class="header-padding">
-              <mat-panel-title [ngSwitch]="idx">
-                <span *ngSwitchCase="0" style="font-size: 20px">
-                  <span style="margin-right: 5px">🥇</span>
-                  {{ entry.teamName }}
-                </span>
-                <span *ngSwitchCase="1" style="font-size: 18px">
-                  <span style="margin-right: 5px">🥈</span>
-                  {{ entry.teamName }}
-                </span>
-                <span *ngSwitchDefault>
-                  <span style="margin-right: 5px">{{ idx + 1 }}. </span>
-                  {{ entry.teamName }}
-                </span>
+              <mat-panel-title [ngSwitch]="idx" class="flex__align--center">
+                <div>
+                  <span *ngSwitchCase="0" style="font-size: 24px">🥇</span>
+                  <span *ngSwitchCase="1" style="font-size: 18px">🥈</span>
+                  <span *ngSwitchDefault>{{ idx + 1 }}.</span>
+                </div>
+                <div class="margin__left--10px">
+                  <span
+                    [ngClass]="{
+                      'font__size--24px':
+                        idx === 0 && entry.teamName.length <= 25,
+                      'font__size--18px':
+                        idx === 1 && entry.teamName.length <= 25,
+                      'font__size--12px': idx > 1 || entry.teamName.length > 25
+                    }"
+                    >{{ entry.teamName }}</span
+                  >
+                </div>
               </mat-panel-title>
               <mat-panel-description
                 style="display: flex; align-items: center; margin-right: 0"

@@ -4,7 +4,12 @@ import { combineLatest, Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
-import { PlayerStatsDialogComponent } from 'app/player-stats-dialog/player-stats-dialog.component';
+import { PlayerStatsDialogComponent } from 'app/_dialogs/player-stats-dialog/player-stats-dialog.component';
+import { environment } from 'environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -30,10 +35,33 @@ export class HomePageComponent implements OnInit {
   scoreboardData$: Observable<any[]>;
   scoring: any;
   poolIsOpen$: Observable<boolean>;
+  signInEmail: string;
+  user$: Observable<firebase.User>;
+  userEntry: {
+    teamName: any;
+    email: any;
+    roster: any[];
+    totalPoints: number;
+    remainingPlayers: number;
+    isValid: boolean;
+  };
+  userRank: number;
 
-  constructor(private firestore: AngularFirestore, public dialog: MatDialog) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private auth: AngularFireAuth,
+    private snackbar: MatSnackBar,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   async ngOnInit(): Promise<void> {
+    if (this.activatedRoute.snapshot.queryParams.email) {
+      this.confirmSignIn();
+      this.router.navigate(['/'], { queryParams: {} });
+    }
+
     this.poolIsOpen$ = this.firestore
       .doc(`settings/general`)
       .valueChanges()
@@ -43,6 +71,8 @@ export class HomePageComponent implements OnInit {
         }),
         tap(() => (this.loading = false))
       );
+
+    this.user$ = this.auth.authState;
 
     this.scoring = await this.firestore
       .doc('scoring/points')
@@ -60,8 +90,9 @@ export class HomePageComponent implements OnInit {
       this.teams$,
       this.players$,
       this.entries$,
+      this.user$,
     ]).pipe(
-      map(([stats, teams, allPlayers, entries]) => {
+      map(([stats, teams, allPlayers, entries, user]) => {
         const playersWithScores = allPlayers.map((player) => {
           let playerTotalPoints = 0;
           const playerStats = stats
@@ -116,6 +147,7 @@ export class HomePageComponent implements OnInit {
 
           return {
             teamName: entry.teamName,
+            email: entry.email,
             roster: sorted,
             totalPoints: totalPoints,
             remainingPlayers,
@@ -123,11 +155,22 @@ export class HomePageComponent implements OnInit {
           };
         });
 
-        return _.orderBy(
+        const orderedEntries = _.orderBy(
           entriesWithRosters.filter((entry) => entry.isValid),
           ['totalPoints', 'teamName'],
           ['desc', 'asc']
         );
+
+        this.userEntry = user
+          ? orderedEntries.find((entry, idx) => {
+              const match =
+                entry.email?.toLowerCase() === user.email.toLowerCase();
+              this.userRank = idx + 1;
+              return match;
+            })
+          : null;
+
+        return orderedEntries;
       })
     );
   }
@@ -140,5 +183,68 @@ export class HomePageComponent implements OnInit {
 
   totalPointsChange(index, entry) {
     return entry.totalPoints;
+  }
+
+  async sendPasswordlessSignInLink(): Promise<any> {
+    try {
+      const actionCodeSettings = {
+        url: `${environment.appUrl}?email=${this.signInEmail}`,
+        handleCodeInApp: true,
+      };
+
+      await this.auth.sendSignInLinkToEmail(
+        this.signInEmail,
+        actionCodeSettings
+      );
+
+      window.localStorage.setItem('emailForSignIn', this.signInEmail);
+
+      this.snackbar.open('Sign in link sent.', undefined, {
+        duration: 3500,
+        horizontalPosition: 'start',
+        verticalPosition: 'bottom',
+      });
+
+      this.signInEmail = null;
+    } catch (err) {
+      console.error(err);
+
+      let msg = 'An unknown error occurred.';
+      switch (err.code) {
+        case 'auth/missing-email':
+        case 'auth/invalid-email':
+          msg = 'Please enter a valid email address.';
+          break;
+        default:
+          break;
+      }
+
+      this.snackbar.open(msg, undefined, {
+        duration: 3500,
+        horizontalPosition: 'start',
+        verticalPosition: 'bottom',
+      });
+    }
+  }
+
+  async confirmSignIn() {
+    try {
+      let userEmail = window.localStorage.getItem('emailForSignIn');
+      const urlEmail = this.activatedRoute.snapshot.queryParams.email;
+
+      if (!userEmail || urlEmail !== userEmail) {
+        userEmail = window.prompt(
+          'It appears you followed this link from a different device than it was requested on, please input your email to verify your identity.'
+        );
+      }
+
+      await this.auth.signInWithEmailLink(userEmail, this.router.url);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  signOut() {
+    this.auth.signOut();
   }
 }

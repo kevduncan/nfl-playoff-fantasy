@@ -5,11 +5,8 @@ import { map, take, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
 import { PlayerStatsDialogComponent } from 'app/_dialogs/player-stats-dialog/player-stats-dialog.component';
-import { environment } from 'environments/environment';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -18,7 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   public loading = true;
-  public opened = false;
 
   public lineupOrder = {
     QB: 1,
@@ -35,7 +31,6 @@ export class HomePageComponent implements OnInit {
   scoreboardData$: Observable<any[]>;
   scoring: any;
   poolIsOpen$: Observable<boolean>;
-  signInEmail: string;
   user$: Observable<firebase.User>;
   userEntry: {
     teamName: any;
@@ -50,18 +45,10 @@ export class HomePageComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private auth: AngularFireAuth,
-    private snackbar: MatSnackBar,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
     public dialog: MatDialog
   ) {}
 
   async ngOnInit(): Promise<void> {
-    if (this.activatedRoute.snapshot.queryParams.email) {
-      this.confirmSignIn();
-      this.router.navigate(['/'], { queryParams: {} });
-    }
-
     this.poolIsOpen$ = this.firestore
       .doc(`settings/general`)
       .valueChanges()
@@ -183,69 +170,5 @@ export class HomePageComponent implements OnInit {
 
   totalPointsChange(index, entry) {
     return entry.totalPoints;
-  }
-
-  async sendPasswordlessSignInLink(): Promise<any> {
-    try {
-      const actionCodeSettings = {
-        url: `${environment.appUrl}?email=${this.signInEmail}`,
-        handleCodeInApp: true,
-      };
-
-      await this.auth.sendSignInLinkToEmail(
-        this.signInEmail,
-        actionCodeSettings
-      );
-
-      window.localStorage.setItem('emailForSignIn', this.signInEmail);
-
-      this.snackbar.open('Sign in link sent.', undefined, {
-        duration: 3500,
-        horizontalPosition: 'start',
-        verticalPosition: 'bottom',
-      });
-
-      this.signInEmail = null;
-      this.opened = false;
-    } catch (err) {
-      console.error(err);
-
-      let msg = 'An unknown error occurred.';
-      switch (err.code) {
-        case 'auth/missing-email':
-        case 'auth/invalid-email':
-          msg = 'Please enter a valid email address.';
-          break;
-        default:
-          break;
-      }
-
-      this.snackbar.open(msg, undefined, {
-        duration: 3500,
-        horizontalPosition: 'start',
-        verticalPosition: 'bottom',
-      });
-    }
-  }
-
-  async confirmSignIn() {
-    try {
-      let userEmail = window.localStorage.getItem('emailForSignIn');
-      const urlEmail = this.activatedRoute.snapshot.queryParams.email;
-
-      if (!userEmail || urlEmail !== userEmail) {
-        userEmail = window.prompt(
-          'It appears you followed this link from a different device than it was requested on, please input your email to verify your identity.'
-        );
-      }
-
-      await this.auth.signInWithEmailLink(userEmail, this.router.url);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  signOut() {
-    this.auth.signOut();
   }
 }

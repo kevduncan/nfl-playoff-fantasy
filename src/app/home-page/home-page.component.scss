@@ -27,10 +27,6 @@ h1 {
   flex-direction: column;
 }
 
-.sign-in-container {
-  max-width: 200px;
-}
-
 .pot {
   text-align: center;
   margin-top: 10px;
@@ -71,21 +67,10 @@ h1 {
   padding-bottom: 20px;
 }
 
-.center-margin {
-  margin: 0 auto;
-}
 .blue-button {
   background-color: #008cff;
 }
 
-.mobile-widths {
-  width: 50%;
-}
-@media only screen and (max-width: 768px) {
-  .mobile-widths {
-    width: 100%;
-  }
-}
 .flex-container {
   display: flex;
   align-items: center;

@@ -1,0 +1,133 @@
+<div
+  class="mobile-widths center-margin padding__all--8px form-container"
+  [class.loading-overlay]="submittingLineup"
+>
+  <div class="margin__top--25px margin__bottom--25px">
+    <p>
+      Create a roster from any of the 14 playoff teams using the lineup below.
+      Scoring is PPR.
+    </p>
+    <p>
+      The winner will be whichever lineup accumulates the most points at the end
+      of the Super Bowl based on ESPN PPR scoring
+      <i>(no 2pt conversion points due to technical limitations)</i>.
+    </p>
+  </div>
+  <form [formGroup]="lineupForm">
+    <mat-form-field class="width__100p" color="accent" autofocus>
+      <mat-label>Team Name (SAFE FOR WORK)</mat-label>
+      <input matInput type="text" formControlName="teamName" />
+    </mat-form-field>
+    <mat-form-field class="width__100p" color="accent" autofocus>
+      <mat-label>Venmo Handle</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="venmoHandle"
+        placeholder="@"
+      />
+    </mat-form-field>
+    <div *ngFor="let slot of lineupSlots">
+      <mat-form-field appearance="outline" class="width__100p" color="accent">
+        <mat-label>{{ slot.label }}</mat-label>
+        <mat-select [formControlName]="slot.formControlName">
+          <mat-select-trigger>
+            <div class="display__flex flex__align--center">
+              <mat-icon *ngIf="poolIsOpen$ | async">lock</mat-icon>
+              <img
+                [src]="selectedPlayerMap[slot.formControlName]?.headShot"
+                [alt]="selectedPlayerMap[slot.formControlName]?.name"
+                class="player-headshot"
+              />
+              <span>{{ selectedPlayerMap[slot.formControlName]?.name }}</span>
+              <strong
+                *ngIf="selectedPlayerMap[slot.formControlName]?.injuryStatus"
+                class="margin__left--10px"
+                [ngClass]="{
+                  'font__color--red':
+                    selectedPlayerMap[slot.formControlName]?.injuryStatus ===
+                    'O',
+                  'font__color--orange':
+                    selectedPlayerMap[slot.formControlName]?.injuryStatus ===
+                    'Q'
+                }"
+                >{{
+                  selectedPlayerMap[slot.formControlName]?.injuryStatus
+                }}</strong
+              >
+            </div>
+          </mat-select-trigger>
+          <mat-option
+            class="multiline-option"
+            *ngFor="
+              let player of allPlayers$
+                | async
+                | playersByPosition : slot.validPositions
+            "
+            [value]="player.id"
+            [disabled]="selectedPlayerIds.includes(player.id)"
+          >
+            <div class="display__flex flex__align--center">
+              <img
+                [src]="player.headShot"
+                [alt]="player.name"
+                class="player-headshot"
+                [class.disabled-img]="selectedPlayerIds.includes(player.id)"
+              />
+              <div>
+                <span>{{ player.name }}</span>
+                <strong
+                  *ngIf="player.injuryStatus"
+                  class="margin__left--10px"
+                  [ngClass]="{
+                    'font__color--red': player.injuryStatus === 'O',
+                    'font__color--orange': player.injuryStatus === 'Q'
+                  }"
+                  >{{ player.injuryStatus }}</strong
+                >
+                <br />
+                <small>{{ player.pos }}{{ player.fantasyPositionRank }}</small>
+                <small class="margin__left--10px"
+                  >PPR Points: {{ player.fantasyPprPoints.toFixed(2) }}</small
+                >
+              </div>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="margin__top--10px margin__bottom--10px">
+      <p>
+        You will receive a sign-in email allowing you to view and edit your
+        submitted lineup up until kickoff. You can get a sign-in link from the
+        side menu at any time.
+      </p>
+      <mat-form-field class="width__100p" color="accent">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="text" formControlName="formEmail" disabled />
+        <mat-error>Please include a valid email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button
+      *ngIf="!(poolIsOpen$ | async)"
+      mat-raised-button
+      color="accent"
+      [disabled]="lineupForm.invalid || submittingLineup"
+      class="width__100p"
+      (click)="submitLineup()"
+    >
+      <span *ngIf="!submittingLineup">Submit Lineup</span>
+      <div
+        *ngIf="submittingLineup"
+        class="display__flex flex__justify--center padding__all--8px"
+      >
+        <mat-spinner color="accent" diameter="24"></mat-spinner>
+      </div>
+    </button>
+    <mat-error class="margin__top--10px" *ngIf="lineupError">{{
+      lineupError
+    }}</mat-error>
+  </form>
+</div>

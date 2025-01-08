@@ -1,0 +1,96 @@
+<mat-sidenav-container class="height__100p">
+  <mat-sidenav #sidenav [(opened)]="opened" class="side-nav">
+    <mat-nav-list class="nav-list-container">
+      <div class="display__flex flex__align--center padding__all--8px">
+        <button mat-icon-button (click)="opened = false">
+          <mat-icon>close</mat-icon>
+        </button>
+        <span
+          class="cursor__pointer"
+          style="text-align: center; font-size: 24px; width: 100%"
+          [routerLink]="['/']"
+          (click)="opened = false"
+          >🏈 NFL Fantasy Playoff Pool</span
+        >
+      </div>
+      <div
+        class="margin__left--10px margin__right--10px sign-in-container"
+        *ngIf="!(user$ | async)"
+      >
+        <p>Sign In</p>
+        <mat-form-field appearance="outline" class="width__100p" color="accent">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            [(ngModel)]="signInEmail"
+            (keydown.enter)="sendSignInLink()"
+          />
+          <mat-hint *ngIf="sentLink">Sign-in link sent!</mat-hint>
+        </mat-form-field>
+        <button
+          mat-stroked-button
+          color="accent"
+          class="width__100p"
+          (click)="sendSignInLink()"
+        >
+          <mat-icon class="margin__right--10px">account_circle</mat-icon>
+          Get a Sign-in Link
+        </button>
+      </div>
+      <div
+        class="margin__left--10px margin__right--10px sign-in-container"
+        *ngIf="user$ | async as user"
+      >
+        <h4>{{ user.email }}</h4>
+        <button
+          mat-stroked-button
+          color="accent"
+          class="width__100p"
+          (click)="authService.signOut()"
+        >
+          <mat-icon class="margin__right--10px">logout</mat-icon>
+          Sign Out
+        </button>
+      </div>
+      <a
+        mat-list-item
+        *ngIf="!(poolIsOpen$ | async)"
+        [routerLink]="['/lineup-entry']"
+        (click)="opened = false"
+      >
+        <mat-icon class="font__color--green">lists</mat-icon>
+        <span class="margin__left--10px">Create a Lineup</span></a
+      >
+      <a mat-list-item [routerLink]="['/']" (click)="opened = false">
+        <mat-icon class="font__color--green">leaderboard</mat-icon
+        ><span class="margin__left--10px">Leaderboard</span></a
+      >
+      <a
+        mat-list-item
+        *ngIf="poolIsOpen$ | async"
+        [routerLink]="['/breakdown']"
+        (click)="opened = false"
+        >Player Selection Breakdown</a
+      >
+      <span class="fill-space"></span>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="margin__bottom--50px">
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <div class="margin__right--10px">
+          <button mat-icon-button (click)="opened = true">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <h1 [routerLink]="['/']" class="cursor__pointer">
+          🏈 NFL Fantasy Playoff Pool
+        </h1>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

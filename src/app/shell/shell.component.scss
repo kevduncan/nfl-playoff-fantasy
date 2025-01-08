@@ -1,0 +1,42 @@
+.side-nav {
+  min-width: 33%;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.avatar {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+.nav-list-container {
+  height: calc(100% - 16px);
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.sign-in-container {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.close-menu-button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}

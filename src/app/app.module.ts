@@ -16,10 +16,13 @@ import { StatEntryComponent } from './stat-entry/stat-entry.component';
 import { CommonModule } from '@angular/common';
 import { PlayerStatsDialogComponent } from './_dialogs/player-stats-dialog/player-stats-dialog.component';
 import { PointsSortPipe } from './_pipes/points-sort.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { NgChartsModule } from 'ng2-charts';
 import { PlayerSelectionsComponent } from './player-selections/player-selections.component';
+import { LineupFormComponent } from './lineup-form/lineup-form.component';
+import { ShellComponent } from './shell/shell.component';
+import { PlayersByPositionPipe } from './_pipes/players-by-position.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { PlayerSelectionsComponent } from './player-selections/player-selections
     PlayerStatsDialogComponent,
     PointsSortPipe,
     PlayerSelectionsComponent,
+    LineupFormComponent,
+    ShellComponent,
+    PlayersByPositionPipe,
   ],
   imports: [
     CommonModule,
@@ -36,6 +42,7 @@ import { PlayerSelectionsComponent } from './player-selections/player-selections
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth

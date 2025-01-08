@@ -1,0 +1,16 @@
+.form-container {
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+.multiline-option.mat-option {
+  white-space: normal;
+  line-height: normal;
+  height: 65px !important;
+}
+.disabled-img {
+  opacity: 0.5;
+}
+.loading-overlay {
+  opacity: 0.4;
+  pointer-events: none;
+}

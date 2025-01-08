@@ -124,21 +124,24 @@
             <mat-list-option
               *ngFor="let player of userEntry.roster"
               (click)="openStatsDialog(player)"
+              class="mobile-no-padding"
             >
               <span mat-list-icon class="roster-position font__color--gray">
                 {{ player.slotLabel }}</span
               >
               <div mat-line class="player-info">
                 <img
-                  class="player-headshot"
+                  class="lineup-player-headshot"
                   src="{{ player.headShot }}"
                   alt=""
                 />
                 <div class="margin__left--10px">
-                  <span>{{ player.name.split("(")[0] }}</span>
+                  <span class="player-name-label">{{
+                    player.name.split("(")[0]
+                  }}</span>
                   <strong
                     *ngIf="player.injuryStatus"
-                    class="margin__left--10px"
+                    class="margin__left--10px player-name-label"
                     [ngClass]="{
                       'font__color--red': player.injuryStatus === 'O',
                       'font__color--orange': player.injuryStatus === 'Q'
@@ -146,7 +149,7 @@
                     >{{ player.injuryStatus }}</strong
                   >
                   <br />
-                  <small
+                  <small class="player-pos-team-label"
                     ><span class="font__color--gray margin__right--10px">{{
                       player.pos
                     }}</span>
@@ -224,15 +227,17 @@
               >
               <div mat-line class="player-info">
                 <img
-                  class="player-headshot"
+                  class="lineup-player-headshot"
                   src="{{ player.headShot }}"
                   alt=""
                 />
                 <div class="margin__left--10px">
-                  <span>{{ player.name.split("(")[0] }}</span>
+                  <span class="player-name-label">{{
+                    player.name.split("(")[0]
+                  }}</span>
                   <strong
                     *ngIf="player.injuryStatus"
-                    class="margin__left--10px"
+                    class="margin__left--10px player-name-label"
                     [ngClass]="{
                       'font__color--red': player.injuryStatus === 'O',
                       'font__color--orange': player.injuryStatus === 'Q'
@@ -240,7 +245,7 @@
                     >{{ player.injuryStatus }}</strong
                   >
                   <br />
-                  <small
+                  <small class="player-pos-team-label"
                     ><span class="font__color--gray margin__right--10px">{{
                       player.pos
                     }}</span>

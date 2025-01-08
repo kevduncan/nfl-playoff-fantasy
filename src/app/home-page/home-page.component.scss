@@ -92,3 +92,23 @@ h1 {
 .left-10 {
   margin-left: 10px;
 }
+.lineup-player-headshot {
+  height: 40px;
+  width: auto;
+}
+@media only screen and (max-width: 768px) {
+  .mobile-no-padding {
+    ::ng-deep .mat-list-item-content {
+      padding: 0;
+    }
+  }
+  .player-name-label {
+    font-size: 14px;
+  }
+  .player-pos-team-label {
+    font-size: 12px;
+  }
+  .lineup-player-headshot {
+    height: 30px;
+  }
+}

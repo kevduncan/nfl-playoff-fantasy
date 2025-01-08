@@ -301,6 +301,7 @@ export const updateLineup = functions.https.onCall(async (data, context) => {
     poolYear: new Date().getFullYear(),
     lastUpdated: admin.firestore.Timestamp.now(),
     formValues,
+    _paid: false,
   };
 
   if (!entryId) {

@@ -246,7 +246,9 @@ export class LineupFormComponent implements OnInit {
       if (this.authUserEntry) {
         dataToWrite['entryId'] = this.authUserEntry.id;
       } else {
-        dataToWrite['email'] = this.lineupForm.value.formEmail;
+        dataToWrite['email'] = this.lineupForm.value.formEmail
+          .toLowerCase()
+          .trim();
       }
 
       await updateLineup(dataToWrite);

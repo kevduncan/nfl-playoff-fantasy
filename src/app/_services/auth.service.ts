@@ -109,7 +109,7 @@ export class AuthService {
 
         return this.firestore
           .collection<Entry>('entries', (ref) =>
-            ref.where('email', '==', user.email)
+            ref.where('email', '==', user.email?.toLocaleLowerCase())
           )
           .valueChanges();
       }),

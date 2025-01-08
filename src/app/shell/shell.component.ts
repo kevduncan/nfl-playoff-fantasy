@@ -17,7 +17,9 @@ export class ShellComponent implements OnInit {
   poolIsOpen$: Observable<boolean>;
   user$: Observable<firebase.User>;
   signInEmail: string;
-  sentLink = false;
+  sentLink: string;
+  banner$: Observable<string>;
+  bannerDismissed = false;
 
   constructor(
     private firestore: AngularFirestore,
@@ -27,6 +29,9 @@ export class ShellComponent implements OnInit {
     public authService: AuthService
   ) {}
 
+  test(e: Event) {
+    e.stopPropagation();
+  }
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       if (queryParams.email) {
@@ -34,6 +39,11 @@ export class ShellComponent implements OnInit {
         this.router.navigate(['/'], { queryParams: {} });
       }
     });
+
+    this.banner$ = this.firestore
+      .doc(`settings/banners`)
+      .valueChanges()
+      .pipe(map((bannerMap: any) => bannerMap?.homepage));
 
     this.poolIsOpen$ = this.firestore
       .doc(`settings/general`)
@@ -48,9 +58,13 @@ export class ShellComponent implements OnInit {
   }
 
   async sendSignInLink() {
-    this.sentLink = false;
-    await this.authService.sendPasswordlessSignInLink(this.signInEmail);
-    this.signInEmail = '';
-    this.sentLink = true;
+    try {
+      this.sentLink = '';
+      await this.authService.sendPasswordlessSignInLink(this.signInEmail);
+      this.sentLink = `Sent link to ${this.signInEmail}`;
+      this.signInEmail = '';
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

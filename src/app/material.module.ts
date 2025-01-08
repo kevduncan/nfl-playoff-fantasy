@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -28,6 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatMenuModule,
   ],
   exports: [
     MatIconModule,
@@ -42,6 +43,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule {}

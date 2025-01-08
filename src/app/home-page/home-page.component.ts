@@ -15,6 +15,8 @@ import firebase from 'firebase/compat/app';
 })
 export class HomePageComponent implements OnInit {
   public loading = true;
+  homeBanner$: Observable<string>;
+  bracketImage$: Observable<string>;
 
   public lineupOrder = {
     QB: 1,
@@ -22,6 +24,20 @@ export class HomePageComponent implements OnInit {
     WR: 3,
     TE: 4,
     K: 5,
+  };
+
+  lineupSlotsMap = {
+    qb1: 'QB',
+    qb2: 'QB',
+    rb1: 'RB',
+    rb2: 'RB',
+    wr1: 'WR',
+    wr2: 'WR',
+    wr3: 'WR',
+    te1: 'TE',
+    te2: 'TE',
+    flex1: 'FLEX',
+    flex2: 'FLEX',
   };
 
   stats$: Observable<any[]>;
@@ -60,6 +76,11 @@ export class HomePageComponent implements OnInit {
       );
 
     this.user$ = this.auth.authState;
+
+    this.bracketImage$ = this.firestore
+      .doc(`settings/images`)
+      .valueChanges()
+      .pipe(map((imageMap: any) => imageMap?.currentPlayoffBracket));
 
     this.scoring = await this.firestore
       .doc('scoring/points')
@@ -108,35 +129,34 @@ export class HomePageComponent implements OnInit {
 
           const isValid = entry.players.length === _.uniq(entry.players).length;
 
-          const roster = playersWithScores
-            .filter((player) => entry.players.some((id) => id === player.id))
-            .map((player) => {
-              const playerTeam = teams.find(
-                (team) => team.abbr === player.team
+          const roster = Object.entries(this.lineupSlotsMap).map(
+            ([formValueId, slotLabel]) => {
+              const playerId = entry.formValues[formValueId];
+              const playerScores = playersWithScores.find(
+                (player) => player.id === playerId
               );
-
+              const playerTeam = teams.find(
+                (team) => team.abbr === playerScores.team
+              );
               return {
-                ...player,
+                ...playerScores,
                 teamLogo: playerTeam ? playerTeam.logoUrl : '',
                 eliminated: playerTeam ? playerTeam.eliminated : false,
+                slotLabel,
               };
-            });
+            }
+          );
 
           roster.forEach((player) => {
             totalPoints += player.points;
             if (!player.eliminated) remainingPlayers += 1;
           });
 
-          // sort roster based on lineup order
-          const sorted = _.sortBy(roster, (player) => {
-            return this.lineupOrder[player.pos];
-          });
-
           return {
             teamName: entry.teamName,
             email: entry.email,
-            roster: sorted,
             totalPoints: totalPoints,
+            roster,
             remainingPlayers,
             isValid,
           };

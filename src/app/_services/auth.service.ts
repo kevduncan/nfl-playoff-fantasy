@@ -55,6 +55,8 @@ export class AuthService {
         horizontalPosition: 'start',
         verticalPosition: 'bottom',
       });
+
+      throw err;
     }
   }
 
@@ -80,7 +82,7 @@ export class AuthService {
           msg = 'Sign-in link expired. Sending a new one...';
           setTimeout(() => {
             this.sendPasswordlessSignInLink(userEmail);
-          }, 3000);
+          }, 2000);
           break;
         default:
           break;

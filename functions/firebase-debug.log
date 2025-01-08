@@ -6437,3 +6437,668 @@ Try running "npm install" in your functions directory before deploying. {"metada
 [debug] [2025-01-08T04:45:44.029Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
 [debug] [2025-01-08T04:45:44.029Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
 [debug] [2025-01-08T04:45:44.030Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:04:47.393Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:04:47.389Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:04:47.398Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:04:47.389Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:04:47.398Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:04:47.402Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:04:47.408Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:04:47.408Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:04:47.415Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:04:47.447Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 32.192916ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 32.192916ms"}}
+[debug] [2025-01-08T14:04:47.448Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:04:47.448Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:04:47.449Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:04:47.449Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:04:47.454Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:04:47.453Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:04:47.454Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:04:47.453Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:04:47.454Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:04:47.454Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:04:47.454Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:04:47.454Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:04:47.454Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T14:04:47.461Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[debug] [2025-01-08T14:05:05.851Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 18397.48125ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 18397.48125ms"}}
+[debug] [2025-01-08T14:05:05.852Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:05:05.852Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:05:05.853Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:05:05.853Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:10:59.851Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:10:59.851Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:10:59.852Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:10:59.851Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:10:59.853Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:10:59.854Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:10:59.855Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:10:59.855Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:10:59.856Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:10:59.861Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 6.187375ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 6.187375ms"}}
+[debug] [2025-01-08T14:10:59.863Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:10:59.863Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:10:59.863Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:10:59.863Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:10:59.867Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:10:59.867Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:10:59.867Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:10:59.867Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:10:59.867Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:10:59.868Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:10:59.868Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:10:59.868Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:10:59.868Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:10:59.875Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T14:11:00.013Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 145.349708ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 145.349708ms"}}
+[debug] [2025-01-08T14:11:00.014Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:11:00.014Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:11:00.014Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:11:00.014Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:13:47.251Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:13:47.250Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:13:47.252Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:13:47.250Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:13:47.252Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:13:47.253Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:13:47.254Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:13:47.254Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:13:47.256Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:13:47.263Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 7.643125ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 7.643125ms"}}
+[debug] [2025-01-08T14:13:47.264Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:13:47.264Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:13:47.264Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:13:47.264Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:13:47.264Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:13:47.264Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:13:47.264Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:13:47.264Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:13:47.264Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:13:47.265Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:13:47.265Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:13:47.265Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:13:47.265Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:13:47.269Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T14:13:47.349Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 84.291709ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 84.291709ms"}}
+[debug] [2025-01-08T14:13:47.350Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:13:47.350Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:13:47.350Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:13:47.350Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:14:50.128Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:14:50.128Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:14:50.129Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:14:50.128Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:14:50.129Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:14:50.131Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:14:50.132Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:14:50.132Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:14:50.133Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:14:50.139Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 6.895667ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 6.895667ms"}}
+[debug] [2025-01-08T14:14:50.140Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:14:50.140Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:14:50.140Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:14:50.140Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:14:50.141Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:14:50.141Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:14:50.141Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:14:50.141Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:14:50.141Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:14:50.141Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:14:50.141Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:14:50.141Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:14:50.141Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:14:50.146Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T14:14:50.220Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 79.222084ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 79.222084ms"}}
+[debug] [2025-01-08T14:14:50.221Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:14:50.221Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:14:50.221Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:14:50.221Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:15:27.139Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:15:27.139Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:15:27.140Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:15:27.139Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:15:27.141Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:15:27.142Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:15:27.142Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:15:27.142Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:15:27.143Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:15:27.149Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 6.136ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 6.136ms"}}
+[debug] [2025-01-08T14:15:27.150Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:15:27.150Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:15:27.150Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:15:27.150Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:15:27.150Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:15:27.150Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:15:27.150Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:15:27.150Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:15:27.150Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:15:27.150Z] ID Token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjQwZDg4ZGQ1NWQxYjAwZDg0ZWU4MWQwYjk2M2RlNGNkOGM0ZmFjM2UiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbmZsLWZhbnRhc3ktcGxheW9mZnMtOWFmMzYiLCJhdWQiOiJuZmwtZmFudGFzeS1wbGF5b2Zmcy05YWYzNiIsImF1dGhfdGltZSI6MTczNjM0NTcyMCwidXNlcl9pZCI6InhOY0pSZE9kQnJWNllEU3dCbUF6OWlXQUFQQjIiLCJzdWIiOiJ4TmNKUmRPZEJyVjZZRFN3Qm1BejlpV0FBUEIyIiwiaWF0IjoxNzM2MzQ1NzIwLCJleHAiOjE3MzYzNDkzMjAsImVtYWlsIjoia2R0ZXN0ZXI1QG1haWxpbmF0b3IuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2R0ZXN0ZXI1QG1haWxpbmF0b3IuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.V1iFmRXJRU47onf_g-VnftUqT1ygk0_hLXOwur16zccrwLEfB5yaMDUxec0JU1JTI5blYIZwL1UYeT4MFY5eC0MkKyZtWgnUKoXxVQn33U-e3HOZrk1jhpbW-mZ0lw_VmJ3lYjwMYczaY2xCdeH1PU7T8zKkZ6K6b1MxyMFJ9M6zhlXRqOqXTqn-T7_Xo3WzAfGONoELQjwAvkptOPNYj0FF8TN1I_Yf0wcFL4QqovWp7AvgdaddN8yrdvEAUgdyDlUS9LnG-I8iCRwF-vytODWuSQofZ-gzU8CZVz9kivVIQN86EtNbE8Tm_ulX4nAOj92l1UzRKwjd9BTacnoj4g
+[debug] [2025-01-08T14:15:27.151Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:15:27.151Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:15:27.151Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:15:27.151Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:15:27.153Z] [runtime-status] [40739] Callable functions auth override {"key":"x-callable-context-auth","value":"%7B%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Fnfl-fantasy-playoffs-9af36%22%2C%22aud%22%3A%22nfl-fantasy-playoffs-9af36%22%2C%22auth_time%22%3A1736345720%2C%22user_id%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22sub%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22iat%22%3A1736345720%2C%22exp%22%3A1736349320%2C%22email%22%3A%22kdtester5%40mailinator.com%22%2C%22email_verified%22%3Atrue%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22kdtester5%40mailinator.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%7D%7D"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] Callable functions auth override {\"key\":\"x-callable-context-auth\",\"value\":\"%7B%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Fnfl-fantasy-playoffs-9af36%22%2C%22aud%22%3A%22nfl-fantasy-playoffs-9af36%22%2C%22auth_time%22%3A1736345720%2C%22user_id%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22sub%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22iat%22%3A1736345720%2C%22exp%22%3A1736349320%2C%22email%22%3A%22kdtester5%40mailinator.com%22%2C%22email_verified%22%3Atrue%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22kdtester5%40mailinator.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%7D%7D\"}"}}
+[info] >  ItUyhjGLwDvnKFZBAUxr {"user":"ItUyhjGLwDvnKFZBAUxr","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m ItUyhjGLwDvnKFZBAUxr"}}
+[debug] [2025-01-08T14:15:27.213Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 61.680542ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 61.680542ms"}}
+[debug] [2025-01-08T14:15:27.213Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:15:27.214Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:15:27.214Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:15:27.214Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:22:39.121Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:22:39.121Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:22:39.123Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:22:39.121Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:22:39.123Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:22:39.125Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:22:39.126Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:22:39.126Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:22:39.128Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:22:39.137Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 8.811334ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 8.811334ms"}}
+[debug] [2025-01-08T14:22:39.137Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:22:39.137Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:22:39.138Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:22:39.138Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:22:39.138Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:22:39.138Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:22:39.138Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:22:39.138Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:22:39.138Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:22:39.138Z] ID Token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjQwZDg4ZGQ1NWQxYjAwZDg0ZWU4MWQwYjk2M2RlNGNkOGM0ZmFjM2UiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbmZsLWZhbnRhc3ktcGxheW9mZnMtOWFmMzYiLCJhdWQiOiJuZmwtZmFudGFzeS1wbGF5b2Zmcy05YWYzNiIsImF1dGhfdGltZSI6MTczNjM0NTcyMCwidXNlcl9pZCI6InhOY0pSZE9kQnJWNllEU3dCbUF6OWlXQUFQQjIiLCJzdWIiOiJ4TmNKUmRPZEJyVjZZRFN3Qm1BejlpV0FBUEIyIiwiaWF0IjoxNzM2MzQ1NzIwLCJleHAiOjE3MzYzNDkzMjAsImVtYWlsIjoia2R0ZXN0ZXI1QG1haWxpbmF0b3IuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2R0ZXN0ZXI1QG1haWxpbmF0b3IuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.V1iFmRXJRU47onf_g-VnftUqT1ygk0_hLXOwur16zccrwLEfB5yaMDUxec0JU1JTI5blYIZwL1UYeT4MFY5eC0MkKyZtWgnUKoXxVQn33U-e3HOZrk1jhpbW-mZ0lw_VmJ3lYjwMYczaY2xCdeH1PU7T8zKkZ6K6b1MxyMFJ9M6zhlXRqOqXTqn-T7_Xo3WzAfGONoELQjwAvkptOPNYj0FF8TN1I_Yf0wcFL4QqovWp7AvgdaddN8yrdvEAUgdyDlUS9LnG-I8iCRwF-vytODWuSQofZ-gzU8CZVz9kivVIQN86EtNbE8Tm_ulX4nAOj92l1UzRKwjd9BTacnoj4g
+[debug] [2025-01-08T14:22:39.139Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:22:39.139Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:22:39.139Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:22:39.139Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:22:39.146Z] [runtime-status] [40739] Callable functions auth override {"key":"x-callable-context-auth","value":"%7B%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Fnfl-fantasy-playoffs-9af36%22%2C%22aud%22%3A%22nfl-fantasy-playoffs-9af36%22%2C%22auth_time%22%3A1736345720%2C%22user_id%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22sub%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22iat%22%3A1736345720%2C%22exp%22%3A1736349320%2C%22email%22%3A%22kdtester5%40mailinator.com%22%2C%22email_verified%22%3Atrue%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22kdtester5%40mailinator.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%7D%7D"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] Callable functions auth override {\"key\":\"x-callable-context-auth\",\"value\":\"%7B%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22token%22%3A%7B%22iss%22%3A%22https%3A%2F%2Fsecuretoken.google.com%2Fnfl-fantasy-playoffs-9af36%22%2C%22aud%22%3A%22nfl-fantasy-playoffs-9af36%22%2C%22auth_time%22%3A1736345720%2C%22user_id%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22sub%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%2C%22iat%22%3A1736345720%2C%22exp%22%3A1736349320%2C%22email%22%3A%22kdtester5%40mailinator.com%22%2C%22email_verified%22%3Atrue%2C%22firebase%22%3A%7B%22identities%22%3A%7B%22email%22%3A%5B%22kdtester5%40mailinator.com%22%5D%7D%2C%22sign_in_provider%22%3A%22password%22%7D%2C%22uid%22%3A%22xNcJRdOdBrV6YDSwBmAz9iWAAPB2%22%7D%7D\"}"}}
+[info] >  ItUyhjGLwDvnKFZBAUxr {"user":"ItUyhjGLwDvnKFZBAUxr","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m ItUyhjGLwDvnKFZBAUxr"}}
+[debug] [2025-01-08T14:22:39.351Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 212.257ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 212.257ms"}}
+[debug] [2025-01-08T14:22:39.352Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:22:39.352Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:22:39.352Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:22:39.353Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:23:53.687Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:23:53.687Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:23:53.688Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:23:53.687Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:23:53.689Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:23:53.690Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:23:53.690Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:23:53.691Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:23:53.692Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T14:23:53.697Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 5.609917ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 5.609917ms"}}
+[debug] [2025-01-08T14:23:53.698Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:23:53.698Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:23:53.698Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:23:53.698Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:23:53.698Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:23:53.698Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T14:23:53.698Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T14:23:53.698Z"],"workRunningCount":1}
+[debug] [2025-01-08T14:23:53.698Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T14:23:53.698Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T14:23:53.698Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T14:23:53.698Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T14:23:53.699Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T14:23:53.702Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T14:23:53.770Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 71.634209ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 71.634209ms"}}
+[debug] [2025-01-08T14:23:53.771Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T14:23:53.771Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T14:23:53.771Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T14:23:53.771Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T15:29:23.492Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T15:29:23.489Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T15:29:23.498Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T15:29:23.489Z"],"workRunningCount":1}
+[debug] [2025-01-08T15:29:23.498Z] Accepted request OPTIONS /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T15:29:23.505Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T15:29:23.508Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T15:29:23.508Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T15:29:23.512Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[debug] [2025-01-08T15:29:23.534Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 24.982333ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 24.982333ms"}}
+[debug] [2025-01-08T15:29:23.540Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T15:29:23.540Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T15:29:23.540Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T15:29:23.541Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T15:29:23.541Z] [work-queue] {"queuedWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T15:29:23.541Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T15:29:23.541Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/nfl-fantasy-playoffs-9af36/us-central1/updateLineup-2025-01-08T15:29:23.541Z"],"workRunningCount":1}
+[debug] [2025-01-08T15:29:23.542Z] Accepted request POST /nfl-fantasy-playoffs-9af36/us-central1/updateLineup --> us-central1-updateLineup
+[debug] [2025-01-08T15:29:23.542Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2025-01-08T15:29:23.542Z] [functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/nfl-fantasy-playoffs-9af36/us-central1/updateLineup, mapping to path=/"}}
+[debug] [2025-01-08T15:29:23.542Z] [worker-pool] submitRequest(triggerId=us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-updateLineup)"}}
+[info] i  functions: Beginning execution of "us-central1-updateLineup" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Beginning execution of \"us-central1-updateLineup\""}}
+[debug] [2025-01-08T15:29:23.543Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: BUSY"}}
+[info] >  {"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"} {"user":{"verifications":{"app":"MISSING","auth":"MISSING"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"INFO","message":"Callable request verification passed"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"verifications\":{\"app\":\"MISSING\",\"auth\":\"MISSING\"},\"logging.googleapis.com/labels\":{\"firebase-log-type\":\"callable-request-verification\"},\"severity\":\"INFO\",\"message\":\"Callable request verification passed\"}"}}
+[debug] [2025-01-08T15:29:23.559Z] [runtime-status] [40739] No callable functions auth found {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[runtime-status] [40739] No callable functions auth found"}}
+[info] >  undefined {"user":"undefined","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"\u001b[90m> \u001b[39m undefined"}}
+[debug] [2025-01-08T15:29:23.883Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-updateLineup" in 341.842958ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finished \"us-central1-updateLineup\" in 341.842958ms"}}
+[debug] [2025-01-08T15:29:23.885Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: IDLE"}}
+[debug] [2025-01-08T15:29:23.885Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2025-01-08T15:29:23.885Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2025-01-08T15:29:23.886Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2025-01-08T15:35:28.136Z] File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/lib/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/lib/index.js changed, reloading triggers"}}
+[debug] [2025-01-08T15:35:28.138Z] File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/lib/index.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/lib/index.js.map changed, reloading triggers"}}
+[debug] [2025-01-08T15:35:29.148Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-01-08T15:35:30.606Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^5.7.2"
+  },
+  "private": true
+}
+[debug] [2025-01-08T15:35:30.606Z] Building nodejs source
+[debug] [2025-01-08T15:35:30.606Z] Failed to find version of module node: reached end of search path /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "14" doesn't match your global version "22". Using node@22 from host. 
+[warn] ⚠  functions: You are using an old version of firebase-functions SDK (3.16.0). Please update firebase-functions SDK to >=3.20.0 
+[info] ✔  functions: Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup."}}
+[debug] [2025-01-08T15:35:31.151Z] [worker-pool] Shutting down IDLE worker (us-central1-updateLineup) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-updateLineup)"}}
+[debug] [2025-01-08T15:35:31.151Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: FINISHING"}}
+[debug] [2025-01-08T15:35:31.162Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: exited"}}
+[debug] [2025-01-08T15:35:31.162Z] [worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-updateLineup"},"extension":{},"message":"[worker-us-central1-updateLineup-f2198fc7-39cd-4983-82c3-8494a6b17a13]: FINISHED"}}
+[debug] [2025-01-08T15:40:23.825Z] File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers"}}
+[debug] [2025-01-08T15:40:24.835Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-01-08T15:40:26.139Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^5.7.2"
+  },
+  "private": true
+}
+[debug] [2025-01-08T15:40:26.139Z] Building nodejs source
+[debug] [2025-01-08T15:40:26.140Z] Failed to find version of module node: reached end of search path /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "14" doesn't match your global version "22". Using node@22 from host. 
+[warn] ⚠  functions: You are using an old version of firebase-functions SDK (3.16.0). Please update firebase-functions SDK to >=3.20.0 
+[info] ✔  functions: Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup."}}
+[debug] [2025-01-08T15:42:24.964Z] File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers"}}
+[debug] [2025-01-08T15:42:25.978Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-01-08T15:42:26.884Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^5.7.2"
+  },
+  "private": true
+}
+[debug] [2025-01-08T15:42:26.885Z] Building nodejs source
+[debug] [2025-01-08T15:42:26.885Z] Failed to find version of module node: reached end of search path /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "14" doesn't match your global version "22". Using node@22 from host. 
+[warn] ⚠  functions: You are using an old version of firebase-functions SDK (3.16.0). Please update firebase-functions SDK to >=3.20.0 
+[info] ✔  functions: Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup."}}
+[debug] [2025-01-08T15:42:32.583Z] File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/src/box-score-scraper.py changed, reloading triggers"}}
+[debug] [2025-01-08T15:42:33.586Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-01-08T15:42:34.419Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^5.7.2"
+  },
+  "private": true
+}
+[debug] [2025-01-08T15:42:34.420Z] Building nodejs source
+[debug] [2025-01-08T15:42:34.420Z] Failed to find version of module node: reached end of search path /Users/kduncan/Projects/nfl-fantasy-playoffs/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "14" doesn't match your global version "22". Using node@22 from host. 
+[warn] ⚠  functions: You are using an old version of firebase-functions SDK (3.16.0). Please update firebase-functions SDK to >=3.20.0 
+[info] ✔  functions: Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: updateStats, seedTeamsAndPlayers, updateLineup."}}
+[debug] [2025-01-08T15:43:22.002Z] Received signal SIGHUP 1
+[info]  
+[info] i  emulators: Received SIGHUP for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGHUP signal again to stop right now. 
+[debug] [2025-01-08T15:43:22.055Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.066Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.070Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.083Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.086Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.087Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.087Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.088Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.089Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.095Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.097Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.097Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.098Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.098Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.098Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.098Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.099Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-08T15:43:22.099Z] Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:957:11)
+    at Socket._write (node:net:969:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Console.log (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/Users/kduncan/.nvm/versions/node/v22.11.0/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -201,6 +201,9 @@ body {
     &--orange {
       color: map-get($custom-orange, 300);
     }
+    &--gray {
+      color: #bfbfbf;
+    }
   }
 }
 
@@ -222,6 +225,13 @@ body {
 .player-headshot {
   height: 40px;
   width: auto;
+}
+
+.banner {
+  height: 40px;
+  background-color: map-get($mat-green, 100);
+  color: #000000;
+  font-size: 16px;
 }
 
 .center-margin {

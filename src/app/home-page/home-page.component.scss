@@ -36,12 +36,17 @@ h1 {
 .roster-position {
   font-size: 14px !important;
   font-family: "Roboto" sans-serif !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #bfbfbf;
+  padding: 6px !important;
+  font-weight: bold;
 }
 
 .player-info {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
 }
 
 .eliminated {

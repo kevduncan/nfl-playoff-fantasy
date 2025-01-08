@@ -13,46 +13,6 @@
           >🏈 NFL Fantasy Playoff Pool</span
         >
       </div>
-      <div
-        class="margin__left--10px margin__right--10px sign-in-container"
-        *ngIf="!(user$ | async)"
-      >
-        <p>Sign In</p>
-        <mat-form-field appearance="outline" class="width__100p" color="accent">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            type="email"
-            [(ngModel)]="signInEmail"
-            (keydown.enter)="sendSignInLink()"
-          />
-          <mat-hint *ngIf="sentLink">Sign-in link sent!</mat-hint>
-        </mat-form-field>
-        <button
-          mat-stroked-button
-          color="accent"
-          class="width__100p"
-          (click)="sendSignInLink()"
-        >
-          <mat-icon class="margin__right--10px">account_circle</mat-icon>
-          Get a Sign-in Link
-        </button>
-      </div>
-      <div
-        class="margin__left--10px margin__right--10px sign-in-container"
-        *ngIf="user$ | async as user"
-      >
-        <h4>{{ user.email }}</h4>
-        <button
-          mat-stroked-button
-          color="accent"
-          class="width__100p"
-          (click)="authService.signOut()"
-        >
-          <mat-icon class="margin__right--10px">logout</mat-icon>
-          Sign Out
-        </button>
-      </div>
       <a
         mat-list-item
         *ngIf="!(poolIsOpen$ | async)"
@@ -63,15 +23,16 @@
         <span class="margin__left--10px">Create a Lineup</span></a
       >
       <a mat-list-item [routerLink]="['/']" (click)="opened = false">
-        <mat-icon class="font__color--green">leaderboard</mat-icon
-        ><span class="margin__left--10px">Leaderboard</span></a
+        <mat-icon class="font__color--green">scoreboard</mat-icon
+        ><span class="margin__left--10px">Pool Leaderboard</span></a
       >
       <a
         mat-list-item
         *ngIf="poolIsOpen$ | async"
         [routerLink]="['/breakdown']"
         (click)="opened = false"
-        >Player Selection Breakdown</a
+        ><mat-icon class="font__color--green">leaderboard</mat-icon>
+        <span class="margin__left--10px">Player Selection Breakdown</span>n</a
       >
       <span class="fill-space"></span>
     </mat-nav-list>
@@ -88,6 +49,72 @@
         <h1 [routerLink]="['/']" class="cursor__pointer">
           🏈 NFL Fantasy Playoff Pool
         </h1>
+        <span class="fill-space"></span>
+        <button mat-icon-button [matMenuTriggerFor]="authMenu">
+          <mat-icon class="font__color--green">person</mat-icon>
+        </button>
+        <mat-menu #authMenu="matMenu">
+          <div (click)="test($event)">
+            <div
+              class="margin__left--10px margin__right--10px sign-in-container"
+              *ngIf="!(user$ | async)"
+            >
+              <p class="text__align--center">Sign In</p>
+              <mat-form-field
+                appearance="outline"
+                class="width__100p"
+                color="accent"
+              >
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  [(ngModel)]="signInEmail"
+                  (keydown.enter)="sendSignInLink()"
+                />
+              </mat-form-field>
+              <button
+                mat-stroked-button
+                color="accent"
+                class="width__100p"
+                (click)="sendSignInLink()"
+              >
+                <mat-icon class="margin__right--10px">account_circle</mat-icon>
+                Get a Sign-in Link
+              </button>
+              <div class="margin__top--10px" *ngIf="sentLink">
+                <mat-hint>{{ sentLink }}</mat-hint>
+              </div>
+            </div>
+            <div
+              class="margin__left--10px margin__right--10px sign-in-container"
+              *ngIf="user$ | async as user"
+            >
+              <h4>{{ user.email }}</h4>
+              <button
+                mat-stroked-button
+                color="accent"
+                class="width__100p"
+                (click)="authService.signOut()"
+              >
+                <mat-icon class="margin__right--10px">logout</mat-icon>
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </mat-menu>
+      </mat-toolbar-row>
+      <mat-toolbar-row
+        *ngIf="(banner$ | async) && !bannerDismissed"
+        class="banner"
+      >
+        <small>
+          {{ banner$ | async }}
+        </small>
+        <span class="fill-space"></span>
+        <button mat-icon-button (click)="bannerDismissed = true">
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-toolbar-row>
     </mat-toolbar>
 

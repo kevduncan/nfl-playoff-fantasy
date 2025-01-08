@@ -15,7 +15,8 @@ import {
 import { AuthService } from 'app/_services/auth.service';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/functions';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lineup-form',
@@ -31,6 +32,7 @@ export class LineupFormComponent implements OnInit {
   submittingLineup: boolean;
   currentUser: firebase.User;
   authUserEntry: Entry | null;
+  bracketImage$: Observable<string>;
 
   lineupSlots = [
     {
@@ -104,7 +106,9 @@ export class LineupFormComponent implements OnInit {
     private firestore: AngularFirestore,
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -128,6 +132,11 @@ export class LineupFormComponent implements OnInit {
           return generalSettings.open;
         })
       );
+
+    this.bracketImage$ = this.firestore
+      .doc(`settings/images`)
+      .valueChanges()
+      .pipe(map((imageMap: any) => imageMap?.currentPlayoffBracket));
 
     const formGroupMap = {};
     this.lineupSlots.forEach((slot) => {
@@ -197,8 +206,6 @@ export class LineupFormComponent implements OnInit {
   }
 
   async submitLineup() {
-    firebase.functions().useEmulator('localhost', 5001);
-
     this.lineupError = null;
     this.submittingLineup = true;
 
@@ -253,13 +260,30 @@ export class LineupFormComponent implements OnInit {
       }
 
       await updateLineup(dataToWrite);
+      localStorage.clear();
 
       if (!this.authUserEntry) {
         await this.authService.sendPasswordlessSignInLink(
           this.lineupForm.value.formEmail
         );
+        setTimeout(() => {
+          this.snackbar.open(
+            'Lineup submitted, check your email for a sign-in link to view/edit',
+            'Close',
+            {
+              horizontalPosition: 'start',
+              verticalPosition: 'bottom',
+            }
+          );
+        }, 2500);
+      } else {
+        this.snackbar.open('Lineup submitted.', 'Close', {
+          horizontalPosition: 'start',
+          verticalPosition: 'bottom',
+        });
       }
 
+      this.router.navigate(['/']);
       this.submittingLineup = false;
     } catch (error) {
       console.error(error);

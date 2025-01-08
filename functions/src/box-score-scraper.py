@@ -28,7 +28,8 @@ def scrape_box_scores(request):
                         'name': playerName,
                         'team': team,
                         'opp': opponent,
-                        'statName': stat['name']
+                        'statName': stat['name'],
+                        'id': athlete['athlete']['id']
                     }
                     for i in range(len(athlete['stats'])):
                         playerStats[statLabels[i]] = athlete['stats'][i]

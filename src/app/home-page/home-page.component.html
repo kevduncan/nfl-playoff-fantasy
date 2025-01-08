@@ -1,9 +1,9 @@
 <div
   *ngIf="!(user$ | async) && (poolIsOpen$ | async)"
-  class="display__flex padding__all--20px"
+  class="padding__all--20px"
 >
-  <p class="font__color--green margin__bottom--0">
-    Sign-in from the menu to highlight your own entry
+  <p class="font__color--green margin__bottom--0" style="text-align: right">
+    Sign-in to see your own entry
   </p>
 </div>
 
@@ -13,7 +13,12 @@
     <span *ngIf="!(poolIsOpen$ | async)">so far</span>
     <sup>*</sup>
   </h2>
-  <p>80% to 1st<br />20% to 2nd</p>
+  <p class="margin__bottom--0">
+    {{ (scoreboardData$ | async)?.length * 20 * 0.8 | currency }} to 1st (80%)
+  </p>
+  <p>
+    {{ (scoreboardData$ | async)?.length * 20 * 0.2 | currency }} to 2nd (20%)
+  </p>
 </div>
 
 <div class="mobile-widths center-margin margin__bottom--50px">
@@ -48,47 +53,16 @@
         <span class="font__color--venmo margin__left--10px">@kev_duncan</span>
       </a>
       <p>
-        Please pay when you submit your lineup. Only the last submitted lineup
-        per Venmo handle will be kept.
+        Please pay when you submit your lineup. Any lineups I haven't received $
+        for by kickoff of the first game will be removed.
       </p>
       <p>
         The winner will be whichever lineup accumulates the most points at the
         end of the Super Bowl based on ESPN PPR scoring.
-        <strong>IMPORTANT</strong> The one exception is 2pt conversions, I
-        haven't been able to pull these automatically so they will be omitted
+        <strong>IMPORTANT</strong> The one scoring exception is 2pt conversions,
+        I haven't been able to pull these automatically so they will be omitted
         from the scoring. Winnings will be split evenly in the case of a tie.
       </p>
-      <!-- <p>
-        Create a roster from any of the 14 playoff teams with the following
-        lineup, choose your lineup carefully as some teams may play more games
-        than others:
-      </p>
-      <ul>
-        <li>2 QB</li>
-        <li>2 RB</li>
-        <li>3 WR</li>
-        <li>2 TE</li>
-        <li>2 FLEX (RB/WR/TE)</li>
-      </ul>
-      <p>
-        <strong
-          >Do not select the same player more than once or your entry will not
-          count.</strong
-        ><br />
-        If you mess up/want to change your lineup, submit the form again and
-        enter the same Venmo handle - whenever a new entry is added with the
-        same Venmo handle, the old entry will be automatically removed. The
-        email question will be used to email you a copy of your responses so you
-        can see what lineup you picked until kickoff of the first game when all
-        lineups will be viewable on the site.
-      </p>
-      <p>
-        The winner will be whichever lineup accumulates the most points at the
-        end of the Super Bowl based on ESPN PPR scoring. The one exception is
-        2pt conversions, I haven't been able to pull these automatically so they
-        will be omitted from the scoring. In the case of a tie, the tiebreak
-        will be whoever's roster has the least average ownership %.
-      </p> -->
     </div>
 
     <div
@@ -96,7 +70,7 @@
       class="headers-align margin__left--10px margin__right--10px margin__bottom--50px"
     >
       <div class="display__flex flex__align--center margin__bottom--10px">
-        <h3 class="margin__bottom--0">My Entry</h3>
+        <h2 class="margin__bottom--0">My Entry</h2>
         <span class="margin__right--10px"></span>
         <button
           *ngIf="!(poolIsOpen$ | async)"
@@ -107,11 +81,7 @@
           Edit Lineup
         </button>
       </div>
-      <mat-expansion-panel
-        class="green-border"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
+      <mat-expansion-panel class="green-border" expanded>
         <mat-expansion-panel-header class="header-padding">
           <mat-panel-title [ngSwitch]="userRank" class="flex__align--center">
             <div *ngIf="poolIsOpen$ | async">
@@ -140,31 +110,57 @@
               >{{ userEntry.remainingPlayers }} alive</span
             >
             <span></span>
-            <span style="margin-left: 7px"
+            <span
+              style="margin-left: 7px; font-family: 'Courier New', monospace"
               >{{ userEntry.totalPoints.toFixed(2) }}pts</span
             >
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="roster-info">
+          <small class="font__color--gray"
+            ><i>click player to view gamelog</i></small
+          >
           <mat-selection-list [multiple]="false">
             <mat-list-option
               *ngFor="let player of userEntry.roster"
               (click)="openStatsDialog(player)"
             >
-              <mat-icon mat-list-icon class="roster-position">
-                <span [class.eliminated]="player.eliminated">{{
-                  player.pos
-                }}</span>
-              </mat-icon>
+              <span mat-list-icon class="roster-position font__color--gray">
+                {{ player.slotLabel }}</span
+              >
               <div mat-line class="player-info">
-                <img src="{{ player.teamLogo }}" alt="" style="width: 24px" />
-                <span
-                  [class.eliminated]="player.eliminated"
-                  [class.alive]="!player.eliminated"
+                <img
+                  class="player-headshot"
+                  src="{{ player.headShot }}"
+                  alt=""
+                />
+                <div class="margin__left--10px">
+                  <span>{{ player.name.split("(")[0] }}</span>
+                  <strong
+                    *ngIf="player.injuryStatus"
+                    class="margin__left--10px"
+                    [ngClass]="{
+                      'font__color--red': player.injuryStatus === 'O',
+                      'font__color--orange': player.injuryStatus === 'Q'
+                    }"
+                    >{{ player.injuryStatus }}</strong
+                  >
+                  <br />
+                  <small
+                    ><span class="font__color--gray margin__right--10px">{{
+                      player.pos
+                    }}</span>
+                    <span
+                      [class.eliminated]="player.eliminated"
+                      [class.alive]="!player.eliminated"
+                      >{{ player.team }}</span
+                    ></small
+                  >
+                </div>
+                <span class="fill-space"></span>
+                <span style="font-family: 'Courier New', monospace">
+                  {{ player.points.toFixed(2) }}</span
                 >
-                  {{ player.name.split("(")[0] }}</span
-                >
-                <span> {{ player.points.toFixed(2) }}pts</span>
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -173,7 +169,7 @@
     </div>
 
     <div class="margin__left--10px margin__right--10px">
-      <h3>Leaderboard</h3>
+      <h2>Leaderboard</h2>
     </div>
     <mat-accordion class="headers-align" multi>
       <mat-expansion-panel
@@ -182,8 +178,6 @@
           let idx = index;
           trackBy: totalPointsChange
         "
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header class="header-padding">
           <mat-panel-title [ngSwitch]="idx" class="flex__align--center">
@@ -210,31 +204,57 @@
               >{{ entry.remainingPlayers }} alive</span
             >
             <span></span>
-            <span style="margin-left: 7px"
+            <span
+              style="margin-left: 7px; font-family: 'Courier New', monospace"
               >{{ entry.totalPoints.toFixed(2) }}pts</span
             >
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="roster-info" *ngIf="poolIsOpen$ | async; else notOpen">
+          <small class="font__color--gray"
+            ><i>click player to view gamelog</i></small
+          >
           <mat-selection-list [multiple]="false">
             <mat-list-option
               *ngFor="let player of entry.roster"
               (click)="openStatsDialog(player)"
             >
-              <mat-icon mat-list-icon class="roster-position">
-                <span [class.eliminated]="player.eliminated">{{
-                  player.pos
-                }}</span>
-              </mat-icon>
+              <span mat-list-icon class="roster-position font__color--gray">
+                {{ player.slotLabel }}</span
+              >
               <div mat-line class="player-info">
-                <img src="{{ player.teamLogo }}" alt="" style="width: 24px" />
-                <span
-                  [class.eliminated]="player.eliminated"
-                  [class.alive]="!player.eliminated"
+                <img
+                  class="player-headshot"
+                  src="{{ player.headShot }}"
+                  alt=""
+                />
+                <div class="margin__left--10px">
+                  <span>{{ player.name.split("(")[0] }}</span>
+                  <strong
+                    *ngIf="player.injuryStatus"
+                    class="margin__left--10px"
+                    [ngClass]="{
+                      'font__color--red': player.injuryStatus === 'O',
+                      'font__color--orange': player.injuryStatus === 'Q'
+                    }"
+                    >{{ player.injuryStatus }}</strong
+                  >
+                  <br />
+                  <small
+                    ><span class="font__color--gray margin__right--10px">{{
+                      player.pos
+                    }}</span>
+                    <span
+                      [class.eliminated]="player.eliminated"
+                      [class.alive]="!player.eliminated"
+                      >{{ player.team }}</span
+                    ></small
+                  >
+                </div>
+                <span class="fill-space"></span>
+                <span style="font-family: 'Courier New', monospace">
+                  {{ player.points.toFixed(2) }}</span
                 >
-                  {{ player.name.split("(")[0] }}</span
-                >
-                <span> {{ player.points.toFixed(2) }}pts</span>
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -248,5 +268,18 @@
 </div>
 <div class="text__align--center padding__all--20px">
   <sup>*</sup
-  ><i>this pool is just for fun and no money is kept for organizing it</i>
+  ><i
+    ><small
+      >this pool is for fun and no money is kept for creating/organizing
+      it</small
+    ></i
+  >
+</div>
+
+<div class="mobile-widths center-margin" *ngIf="poolIsOpen$ | async">
+  <img
+    *ngIf="bracketImage$ | async as bracketImage"
+    [src]="bracketImage"
+    class="width__100p"
+  />
 </div>

@@ -6,12 +6,7 @@ import { Entry } from '../../../types/Entry';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first, map } from 'rxjs/operators';
 import { uniq } from 'lodash';
-import {
-  RegExpMatcher,
-  TextCensor,
-  englishDataset,
-  englishRecommendedTransformers,
-} from 'obscenity';
+import { Filter } from 'bad-words';
 import { AuthService } from 'app/_services/auth.service';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/functions';
@@ -238,16 +233,11 @@ export class LineupFormComponent implements OnInit {
         }
       }
 
-      const matcher = new RegExpMatcher({
-        ...englishDataset.build(),
-        ...englishRecommendedTransformers,
-      });
-      const censor = new TextCensor();
-      const matches = matcher.getAllMatches(this.lineupForm.value.teamName);
+      const filter = new Filter();
 
       const updateLineup = firebase.functions().httpsCallable('updateLineup');
       const dataToWrite = {
-        teamName: censor.applyTo(this.lineupForm.value.teamName, matches),
+        teamName: filter.clean(this.lineupForm.value.teamName).trim(),
         venmo: this.lineupForm.value.venmoHandle,
         playerIds: this.selectedPlayerIds,
         formValues: this.lineupForm.value,

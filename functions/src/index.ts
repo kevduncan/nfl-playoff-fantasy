@@ -281,7 +281,6 @@ export const updateLineup = functions.https.onCall(async (data, context) => {
   const firestore = admin.firestore();
 
   const { playerIds, teamName, venmo, email, formValues, entryId } = data;
-  console.log(entryId);
 
   delete formValues.teamName;
   delete formValues.venmoHandle;
@@ -301,13 +300,15 @@ export const updateLineup = functions.https.onCall(async (data, context) => {
     poolYear: new Date().getFullYear(),
     lastUpdated: admin.firestore.Timestamp.now(),
     formValues,
-    _paid: false,
   };
 
   if (!entryId) {
     entry['email'] = email;
+    entry['_paid'] = false;
   }
 
   await firestore.doc(`entries/${id}`).set(entry, { merge: true });
+
+  console.log(`Successfully sasved lineup ${id}`);
   return 'Ok';
 });
